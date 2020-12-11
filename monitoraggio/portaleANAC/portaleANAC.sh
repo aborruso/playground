@@ -31,7 +31,7 @@ else
   checkNumero=0
 fi
 
-if jq <"$folder"/rawdata/package_list.json -r '.result[]' | grep -iP 'opera'; then
+if jq <"$folder"/rawdata/package_list.json -r '.result[]' | grep -iP 'partec'; then
   echo "checkPartecipanti 1" >>"$folder"/processing/check
   checkPartecipanti=1
 else
