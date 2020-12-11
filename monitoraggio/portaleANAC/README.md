@@ -1,0 +1,1 @@
+- [ ] verificare variazioni dataset partecipanti
