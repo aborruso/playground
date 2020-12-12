@@ -1,4 +1,4 @@
-name: scarica e tieni aggiornati i dati openregio
+name: check variazioni portale ANAC opendata partecipanti
 
 on:
 #  push:
