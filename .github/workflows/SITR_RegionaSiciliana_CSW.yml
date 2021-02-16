@@ -27,6 +27,7 @@ jobs:
       env:
         IFTTT: ${{ secrets.IFTTT }}
       run: |-
+        export PATH=$PATH:~/bin
         cd ./monitoraggio/sitrSicilia
         chmod +x ./SITRcatalogo.sh
         ./SITRcatalogo.sh
