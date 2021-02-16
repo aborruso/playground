@@ -49,6 +49,10 @@ if [ $code -eq 200 ]; then
   mlr --j2c unsparsify then put '$IPA=sub($id,"^(.+):(.+)$","\1")' "$folder"/lavorazione/check_http.jsonl >"$folder"/lavorazione/check_http.csv
 
   # fai il JOIN tra anagrafica risorse e risposte HTTP
-  mlr --csv join --ul -j identifier -l identifier -r id -f "$folder"/SITRcatalogo.csv then unsparsify then reorder -f identifier,http_code then sort -f identifier "$folder"/lavorazione/check_http.csv >./report.csv
+  mlr --csv join --ul -j identifier -l identifier -r id -f "$folder"/SITRcatalogo.csv then unsparsify then reorder -f identifier,http_code then sort -f identifier "$folder"/lavorazione/check_http.csv >"$folder"/report.csv
+
+  # crea report 404
+
+  mlr --c2m filter -S '$http_code=="404"' then cut -f identifier,http_code,references "$folder"/report.csv >"$folder"/../../docs/monitoraggio/sitrSicilia/404.md
 
 fi
