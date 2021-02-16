@@ -15,30 +15,38 @@ mkdir -p "$folder"/lavorazione
 
 URLcsw="http://www.sitr.regione.sicilia.it/geoportale/csw"
 
-# scarica dati del catalogo
-ogr2ogr -F geojson "$folder"/SITRcatalogo.geojson CSW:""$URLcsw"" -oo ELEMENTSETNAME=full -oo FULL_EXTENT_RECORDS_AS_NON_SPATIAL=YES -oo MAX_RECORDS=500 --config GML_SKIP_CORRUPTED_FEATURES YES
+# leggi la risposta HTTP del sito
+code=$(curl -s -kL -o /dev/null -w '%{http_code}' "$URLcsw")
 
-# estrai dal catalogo le informazioni di base, in formato CSV
-jq <"$folder"/SITRcatalogo.geojson -c '.features[]|{type,identifier:.properties.identifier,properties_type:.properties.type,subject:.properties.subject,othersubject:(if .properties.other_subjects|length > 0 then .properties.other_subjects|join(",") else .properties.other_subjects end),references:.properties.references,abstract:.properties.abstract}' |
-  mlr --j2c unsparsify then \
-    put '
+# se l'endpoint CSW risponde, estrai report CSW
+if [ $code -eq 200 ]; then
+
+  # scarica dati del catalogo
+  ogr2ogr -F geojson "$folder"/SITRcatalogo.geojson CSW:""$URLcsw"" -oo ELEMENTSETNAME=full -oo FULL_EXTENT_RECORDS_AS_NON_SPATIAL=YES -oo MAX_RECORDS=500 --config GML_SKIP_CORRUPTED_FEATURES YES
+
+  # estrai dal catalogo le informazioni di base, in formato CSV
+  jq <"$folder"/SITRcatalogo.geojson -c '.features[]|{type,identifier:.properties.identifier,properties_type:.properties.type,subject:.properties.subject,othersubject:(if .properties.other_subjects|length > 0 then .properties.other_subjects|join(",") else .properties.other_subjects end),references:.properties.references,abstract:.properties.abstract}' |
+    mlr --j2c unsparsify then \
+      put '
   $properties_type=gsub($properties_type,"[\(\)]","");
   if($properties_type=~"downloadableData"){$downloadableData=1}else{$downloadableData=0}
   ' >"$folder"/SITRcatalogo.csv
 
-# estrai dal CSV ID risorsa e URL
-mlr --c2t cut -f identifier,references "$folder"/SITRcatalogo.csv | tail -n +2 >"$folder"/lavorazione/SITRcatalogo_check.tsv
+  # estrai dal CSV ID risorsa e URL
+  mlr --c2t cut -f identifier,references "$folder"/SITRcatalogo.csv | tail -n +2 >"$folder"/lavorazione/SITRcatalogo_check.tsv
 
-aggiornaDati="sì"
+  aggiornaDati="sì"
 
-# raccogli la risposta HTTP delle varie risorse
-if [[ $aggiornaDati == "sì" ]]; then
-  rm "$folder"/lavorazione/check_http.jsonl
-  parallel --colsep "\t" -j 10 'echo '"'"'{"id":"{1}","http_code": "'"'"'"$(curl -kL -s -o /dev/null -w "%{http_code}" {2})"'"'"'"}'"'"' >>./lavorazione/check_http.jsonl' :::: ./lavorazione/SITRcatalogo_check.tsv
+  # raccogli la risposta HTTP delle varie risorse
+  if [[ $aggiornaDati == "sì" ]]; then
+    rm "$folder"/lavorazione/check_http.jsonl
+    parallel --colsep "\t" -j 10 'echo '"'"'{"id":"{1}","http_code": "'"'"'"$(curl -kL -s -o /dev/null -w "%{http_code}" {2})"'"'"'"}'"'"' >>./lavorazione/check_http.jsonl' :::: ./lavorazione/SITRcatalogo_check.tsv
+  fi
+
+  # converti il file con le risposte da JSON a CSV
+  mlr --j2c unsparsify then put '$IPA=sub($id,"^(.+):(.+)$","\1")' "$folder"/lavorazione/check_http.jsonl >"$folder"/lavorazione/check_http.csv
+
+  # fai il JOIN tra anagrafica risorse e risposte HTTP
+  mlr --csv join --ul -j identifier -l identifier -r id -f "$folder"/SITRcatalogo.csv then unsparsify then reorder -f identifier,http_code then sort -f identifier "$folder"/lavorazione/check_http.csv >./report.csv
+
 fi
-
-# converti il file con le risposte da JSON a CSV
-mlr --j2c unsparsify then put '$IPA=sub($id,"^(.+):(.+)$","\1")' "$folder"/lavorazione/check_http.jsonl >"$folder"/lavorazione/check_http.csv
-
-# fai il JOIN tra anagrafica risorse e risposte HTTP
-mlr --csv join --ul -j identifier -l identifier -r id -f "$folder"/SITRcatalogo.csv then unsparsify then reorder -f identifier,http_code then sort -f identifier "$folder"/lavorazione/check_http.csv >./report.csv
