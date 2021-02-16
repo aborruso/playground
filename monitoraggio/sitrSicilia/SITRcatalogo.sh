@@ -13,6 +13,8 @@ folder="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 mkdir -p "$folder"/lavorazione
 
+git pull
+
 URLcsw="http://www.sitr.regione.sicilia.it/geoportale/csw"
 
 # leggi la risposta HTTP del sito
@@ -40,7 +42,7 @@ if [ $code -eq 200 ]; then
   # raccogli la risposta HTTP delle varie risorse
   if [[ $aggiornaDati == "sì" ]]; then
     rm "$folder"/lavorazione/check_http.jsonl
-    parallel --colsep "\t" -j 10 'echo '"'"'{"id":"{1}","http_code": "'"'"'"$(curl -kL -s -o /dev/null -w "%{http_code}" {2})"'"'"'"}'"'"' >>./lavorazione/check_http.jsonl' :::: ./lavorazione/SITRcatalogo_check.tsv
+    parallel --colsep "\t" -j0 'echo '"'"'{"id":"{1}","http_code": "'"'"'"$(curl -kL -s -o /dev/null -w "%{http_code}" {2})"'"'"'"}'"'"' >>./lavorazione/check_http.jsonl' :::: ./lavorazione/SITRcatalogo_check.tsv
   fi
 
   # converti il file con le risposte da JSON a CSV
