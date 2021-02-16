@@ -18,7 +18,6 @@ jobs:
     - name: crea cartella utente bin, copia dentro l'eseguibile di miller, installa gdal/ogr
       run: |-
         sudo apt-get install gdal-bin
-        sudo apt-get install parallel
         mkdir -p ~/bin
         cp bin/mlr ~/bin
         cd ~/bin
