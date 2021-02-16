@@ -1,3 +1,8 @@
 tmp*
 monitoraggio/portaleANAC/rawdata/*
 .config
+
+# sitr sicilia
+monitoraggio/sitrSicilia/lavorazione/*
+monitoraggio/sitrSicilia/SITR*.csv
+monitoraggio/sitrSicilia/SITR*.geojson
