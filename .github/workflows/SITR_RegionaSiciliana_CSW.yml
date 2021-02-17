@@ -1,7 +1,7 @@
 name: check raggiungibilità risorse SITR Regione Siciliana
 
 on:
-  push:
+#  push:
   repository_dispatch:
   schedule:
 # le ore github sono -2, quindi se inserisco 5, sono le 7 di mattina italiane (con la variazione solare, legale)
