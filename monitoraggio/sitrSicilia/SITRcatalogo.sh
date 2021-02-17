@@ -37,7 +37,7 @@ if [ $code -eq 200 ]; then
   # estrai dal CSV ID risorsa e URL
   mlr --c2t cut -f identifier,references "$folder"/SITRcatalogo.csv | tail -n +2 >"$folder"/lavorazione/SITRcatalogo_check.tsv
 
-  aggiornaDati="no"
+  aggiornaDati="sì"
 
   # raccogli la risposta HTTP delle varie risorse
   if [[ $aggiornaDati == "sì" ]]; then
