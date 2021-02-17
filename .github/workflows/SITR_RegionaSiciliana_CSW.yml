@@ -30,6 +30,8 @@ jobs:
         cd ./monitoraggio/sitrSicilia
         chmod +x ./SITRcatalogo.sh
         ./SITRcatalogo.sh
+        chmod +x ./SITRcatalogo_report.sh
+        ./SITRcatalogo_report.sh
     - name: Committa e pusha se ci sono variazioni nei dati
       run: |-
         git config user.name "automatico"
