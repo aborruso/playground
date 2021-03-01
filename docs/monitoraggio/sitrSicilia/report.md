@@ -2,32 +2,34 @@
 
 | http_code | count |
 | --- | --- |
-| 200 | 314 |
-| 000 | 74 |
-| 500 | 74 |
+| 200 | 312 |
+| 500 | 75 |
+| 000 | 72 |
 | 403 | 22 |
 | 499 | 11 |
-| 204 | 10 |
-| 404 | 8 |
+| 204 | 11 |
+| 404 | 10 |
 | 400 | 7 |
 
 # Conteggio per IPA 
 
-| http_code | c_a028 | c_a089 | r_sicili | c_a056 | p_ag | p_cl | p_en | p_tp |
+| http_code | c_a028 | c_a089 | r_sicili | c_a056 | p_cl | p_en | p_tp | p_ag |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 000 |  |  | 44 | 2 | 2 | 3 | 4 | 19 |
-| 200 | 4 | 1 | 309 |  |  |  |  |  |
-| 204 |  |  | 10 |  |  |  |  |  |
-| 400 |  |  | 6 |  |  |  | 1 |  |
-| 403 |  |  |  |  |  |  |  | 22 |
-| 404 |  |  | 8 |  |  |  |  |  |
-| 499 |  |  |  |  | 11 |  |  |  |
-| 500 |  | 1 | 15 |  |  |  | 58 |  |
+| 000 |  |  | 44 | 2 | 3 | 4 | 19 |  |
+| 200 | 4 | 1 | 307 |  |  |  |  |  |
+| 204 |  |  | 11 |  |  |  |  |  |
+| 400 |  |  | 6 |  |  | 1 |  |  |
+| 403 |  |  |  |  |  |  | 22 |  |
+| 404 |  |  | 8 |  |  |  |  | 2 |
+| 499 |  |  |  |  |  |  |  | 11 |
+| 500 |  | 1 | 16 |  |  | 58 |  |  |
 
 # 404
 
 | identifier | http_code | references |
 | --- | --- | --- |
+| p_ag:3be68dbe-ea3f-48df-a990-a40c8bc5daad | 404 | http://sit.provincia.agrigento.it/scaricabili/CTCM5K/ |
+| p_ag:db2e6f68-81fa-4e84-9c2d-e5020d3cff5f | 404 | http://sit.provincia.agrigento.it/scaricabili/grafo/grafo_9_agosto_2011.zip |
 | r_sicili:0fd6642e-4989-4c39-a4cb-a35ece402003 | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
 | r_sicili:15990177-b128-4f1e-8054-55c3e830a22f | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
 | r_sicili:46e39e50-934b-4d5c-96ef-a2019f5b2db4 | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_download/gid,5/Itemid,105/ |
