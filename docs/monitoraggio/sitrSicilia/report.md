@@ -2,12 +2,12 @@
 
 | http_code | count |
 | --- | --- |
-| 200 | 314 |
+| 200 | 315 |
 | 000 | 74 |
 | 500 | 74 |
 | 403 | 22 |
 | 499 | 11 |
-| 204 | 11 |
+| 204 | 10 |
 | 404 | 9 |
 | 400 | 7 |
 
@@ -16,8 +16,8 @@
 | http_code | c_a028 | c_a089 | r_sicili | c_a056 | p_ag | p_cl | p_en | p_tp |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 000 |  |  | 44 | 2 | 2 | 3 | 4 | 19 |
-| 200 | 4 | 1 | 309 |  |  |  |  |  |
-| 204 |  |  | 11 |  |  |  |  |  |
+| 200 | 4 | 1 | 310 |  |  |  |  |  |
+| 204 |  |  | 10 |  |  |  |  |  |
 | 400 |  |  | 6 |  |  |  | 1 |  |
 | 403 |  |  |  |  |  |  |  | 22 |
 | 404 |  |  | 9 |  |  |  |  |  |
@@ -37,3 +37,6 @@
 | r_sicili:98ae3ab4-99de-4caa-ad01-fa26165582ed | 404 | http://map.sitr.regione.sicilia.it/ArcGIS/services/CTR_LimitiAmministrativi/MapServer/WFSServer |
 | r_sicili:c923b84f-d01d-4658-a109-2edb0662ccff | 404 | http://map.sitr.regione.sicilia.it/ArcGIS/services/CTR_LimitiAmministrativi/MapServer/WMSServer |
 | r_sicili:f26b8e57-06fe-4112-838d-18ec0bf1d85f | 404 | http://map.sitr.regione.sicilia.it/ArcGIS/services/AREE_URBANE/Ortofoto14cm_Messina_ata20122013/MapServer/WCSServer |
+
+# Risorse passate da 2** a 5**
+
