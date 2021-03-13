@@ -26,3 +26,7 @@ mlr --c2m cut -f http_code,IPA then count -g http_code,IPA then reshape -s IPA,c
 echo -e "\n# 404\n" >>"$folder"/../../docs/monitoraggio/sitrSicilia/report.md
 
 mlr --c2m filter -S '$http_code=="404"' then cut -f identifier,http_code,references then sort -f identifier "$folder"/report.csv >>"$folder"/../../docs/monitoraggio/sitrSicilia/report.md
+
+echo -e "\n# Risorse passate da 2** a 5**\n" >>"$folder"/../../docs/monitoraggio/sitrSicilia/report.md
+
+mlr --c2m cat "$folder"/check_http_alert_200_500.csv >>"$folder"/../../docs/monitoraggio/sitrSicilia/report.md
