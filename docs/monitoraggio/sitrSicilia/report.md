@@ -2,32 +2,34 @@
 
 | http_code | count |
 | --- | --- |
-| 200 | 314 |
-| 500 | 75 |
-| 000 | 74 |
+| 200 | 312 |
+| 000 | 83 |
+| 500 | 74 |
 | 403 | 22 |
-| 499 | 11 |
-| 204 | 10 |
-| 404 | 9 |
+| 404 | 11 |
+| 204 | 9 |
 | 400 | 7 |
+| 503 | 4 |
 
 # Conteggio per IPA 
 
 | http_code | c_a028 | c_a089 | r_sicili | c_a056 | p_ag | p_cl | p_en | p_tp |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 000 |  |  | 44 | 2 | 2 | 3 | 4 | 19 |
-| 200 | 4 | 1 | 309 |  |  |  |  |  |
-| 204 |  |  | 10 |  |  |  |  |  |
+| 000 |  |  | 44 | 2 | 11 | 3 | 4 | 19 |
+| 200 | 4 | 1 | 307 |  |  |  |  |  |
+| 204 |  |  | 9 |  |  |  |  |  |
 | 400 |  |  | 6 |  |  |  | 1 |  |
 | 403 |  |  |  |  |  |  |  | 22 |
-| 404 |  |  | 9 |  |  |  |  |  |
-| 499 |  |  |  |  | 11 |  |  |  |
-| 500 |  | 1 | 16 |  |  |  | 58 |  |
+| 404 |  |  | 9 |  | 2 |  |  |  |
+| 500 |  | 1 | 15 |  |  |  | 58 |  |
+| 503 |  |  | 4 |  |  |  |  |  |
 
 # 404
 
 | identifier | http_code | references |
 | --- | --- | --- |
+| p_ag:3be68dbe-ea3f-48df-a990-a40c8bc5daad | 404 | http://sit.provincia.agrigento.it/scaricabili/CTCM5K/ |
+| p_ag:db2e6f68-81fa-4e84-9c2d-e5020d3cff5f | 404 | http://sit.provincia.agrigento.it/scaricabili/grafo/grafo_9_agosto_2011.zip |
 | r_sicili:0fd6642e-4989-4c39-a4cb-a35ece402003 | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
 | r_sicili:15990177-b128-4f1e-8054-55c3e830a22f | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
 | r_sicili:46e39e50-934b-4d5c-96ef-a2019f5b2db4 | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_download/gid,5/Itemid,105/ |
@@ -42,4 +44,7 @@
 
 | id | http_code_old | IPA | http_code_latest |
 | --- | --- | --- | --- |
-| r_sicili:c1aeae5e-6a3b-4853-9fe8-47e74a5609fd | 200 | r_sicili | 500 |
+| r_sicili:b2411485-a0b3-45a5-92bd-180c97669256 | 200 | r_sicili | 503 |
+| r_sicili:3c75ce1e-f9c8-4c85-984a-d82ea89b42bf | 200 | r_sicili | 503 |
+| r_sicili:7c864d07-e7fd-43b6-a15d-1b761f00e469 | 200 | r_sicili | 503 |
+| r_sicili:c31ec752-7d44-49b3-98c0-1530e19855a8 | 200 | r_sicili | 503 |
