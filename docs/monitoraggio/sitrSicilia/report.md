@@ -2,27 +2,29 @@
 
 | http_code | count |
 | --- | --- |
-| 200 | 310 |
-| 000 | 131 |
-| 503 | 31 |
+| 200 | 313 |
+| 000 | 73 |
+| 500 | 73 |
 | 403 | 22 |
 | 499 | 11 |
-| 404 | 8 |
+| 404 | 11 |
+| 204 | 11 |
 | 400 | 7 |
-| 502 | 3 |
+| 502 | 2 |
 
 # Conteggio per IPA 
 
 | http_code | c_a028 | c_a089 | r_sicili | c_a056 | p_cl | p_en | p_tp | p_ag |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 000 |  | 1 | 44 | 2 | 3 | 62 | 19 |  |
-| 200 | 4 | 1 | 305 |  |  |  |  |  |
+| 000 |  | 1 | 44 | 2 | 3 | 4 | 19 |  |
+| 200 | 4 | 1 | 308 |  |  |  |  |  |
+| 204 |  |  | 11 |  |  |  |  |  |
 | 400 |  |  | 6 |  |  | 1 |  |  |
 | 403 |  |  |  |  |  |  | 22 |  |
-| 404 |  |  | 6 |  |  |  |  | 2 |
+| 404 |  |  | 9 |  |  |  |  | 2 |
 | 499 |  |  |  |  |  |  |  | 11 |
-| 502 |  |  | 3 |  |  |  |  |  |
-| 503 |  |  | 31 |  |  |  |  |  |
+| 500 |  |  | 15 |  |  | 58 |  |  |
+| 502 |  |  | 2 |  |  |  |  |  |
 
 # 404
 
@@ -36,21 +38,12 @@
 | r_sicili:7b2a7bf3-6d4f-46a8-8450-1374a0fe632d | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
 | r_sicili:8d37e913-7883-489e-a0b6-37d6e4d96a13 | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
 | r_sicili:91b8c6db-e2f9-47ad-936c-3d6cbc5e7b7a | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_download/gid,1/Itemid,105/ |
+| r_sicili:98ae3ab4-99de-4caa-ad01-fa26165582ed | 404 | http://map.sitr.regione.sicilia.it/ArcGIS/services/CTR_LimitiAmministrativi/MapServer/WFSServer |
+| r_sicili:c923b84f-d01d-4658-a109-2edb0662ccff | 404 | http://map.sitr.regione.sicilia.it/ArcGIS/services/CTR_LimitiAmministrativi/MapServer/WMSServer |
+| r_sicili:f26b8e57-06fe-4112-838d-18ec0bf1d85f | 404 | http://map.sitr.regione.sicilia.it/ArcGIS/services/AREE_URBANE/Ortofoto14cm_Messina_ata20122013/MapServer/WCSServer |
 
 # Risorse passate da 2** a 5**
 
 | id | http_code_old | IPA | http_code_latest |
 | --- | --- | --- | --- |
-| r_sicili:fd68376e-6368-401e-8a39-47a5bc1987c7 | 204 | r_sicili | 503 |
-| r_sicili:7a8e9d48-e335-4bb4-92e0-2bb2f7779c30 | 204 | r_sicili | 503 |
-| r_sicili:c4eedd1b-c571-472f-bfda-3f7eb3ae3b2c | 204 | r_sicili | 503 |
-| r_sicili:10d04c4a-0d3b-435a-b77c-aaf7dd0ff4f3 | 204 | r_sicili | 503 |
-| r_sicili:14ed4d54-3091-48c9-b6d0-8020d26eb6c9 | 200 | r_sicili | 503 |
-| r_sicili:385b54a3-9784-408e-830f-acb08f0aa527 | 204 | r_sicili | 503 |
-| r_sicili:6da025d3-0bf3-42c0-8989-d09b04a5d2e0 | 200 | r_sicili | 503 |
-| r_sicili:34f12048-61e5-47cc-995d-ef3bd61fd34f | 204 | r_sicili | 503 |
-| r_sicili:c504dc97-11ab-403b-acb2-7dbcea23b11f | 204 | r_sicili | 503 |
-| r_sicili:dba43e80-e7c2-4001-8e98-6d1d6a217240 | 204 | r_sicili | 503 |
-| r_sicili:caf05ab2-8f19-4367-b9db-54892e54847d | 200 | r_sicili | 502 |
-| r_sicili:85c63b72-e51b-4acb-a36f-96bf529f21df | 200 | r_sicili | 502 |
-| r_sicili:f65a64d6-da1a-4357-be23-ad1076393b75 | 200 | r_sicili | 502 |
+| r_sicili:545ac0f6-17fc-41ae-a640-d2a657b25eea | 200 | r_sicili | 502 |
