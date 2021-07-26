@@ -4,10 +4,10 @@
 | --- | --- |
 | 200 | 314 |
 | 500 | 76 |
-| 000 | 73 |
+| 000 | 74 |
 | 403 | 22 |
 | 499 | 11 |
-| 404 | 11 |
+| 404 | 10 |
 | 204 | 10 |
 | 400 | 6 |
 
@@ -15,12 +15,12 @@
 
 | http_code | c_a028 | c_a089 | r_sicili | c_a056 | p_cl | p_en | p_tp | p_ag |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 000 |  | 1 | 44 | 2 | 3 | 4 | 19 |  |
+| 000 |  | 1 | 45 | 2 | 3 | 4 | 19 |  |
 | 200 | 4 | 1 | 309 |  |  |  |  |  |
 | 204 |  |  | 10 |  |  |  |  |  |
 | 400 |  |  | 5 |  |  | 1 |  |  |
 | 403 |  |  |  |  |  |  | 22 |  |
-| 404 |  |  | 11 |  |  |  |  |  |
+| 404 |  |  | 10 |  |  |  |  |  |
 | 499 |  |  |  |  |  |  |  | 11 |
 | 500 |  |  | 16 |  |  | 58 |  | 2 |
 
@@ -29,7 +29,6 @@
 | identifier | http_code | references |
 | --- | --- | --- |
 | r_sicili:0fd6642e-4989-4c39-a4cb-a35ece402003 | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
-| r_sicili:10d04c4a-0d3b-435a-b77c-aaf7dd0ff4f3 | 404 | http://map.sitr.regione.sicilia.it/ArcGIS/services/AREE_URBANE/Ortofoto14cm_Palermo_ata20122013/MapServer/WCSServer |
 | r_sicili:15990177-b128-4f1e-8054-55c3e830a22f | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
 | r_sicili:46e39e50-934b-4d5c-96ef-a2019f5b2db4 | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_download/gid,5/Itemid,105/ |
 | r_sicili:7b2a7bf3-6d4f-46a8-8450-1374a0fe632d | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
@@ -42,6 +41,3 @@
 
 # Risorse passate da 2** a 5**
 
-| id | http_code_old | IPA | http_code_latest |
-| --- | --- | --- | --- |
-| r_sicili:c1aeae5e-6a3b-4853-9fe8-47e74a5609fd | 200 | r_sicili | 500 |
