@@ -2,29 +2,27 @@
 
 | http_code | count |
 | --- | --- |
-| 200 | 313 |
-| 000 | 131 |
+| 200 | 318 |
+| 500 | 75 |
+| 000 | 73 |
 | 403 | 22 |
-| 500 | 18 |
 | 499 | 11 |
-| 204 | 11 |
-| 404 | 10 |
+| 204 | 10 |
+| 404 | 9 |
 | 400 | 6 |
-| 502 | 1 |
 
 # Conteggio per IPA 
 
 | http_code | c_a028 | c_a089 | r_sicili | c_a056 | p_cl | p_en | p_tp | p_ag |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 000 |  | 1 | 44 | 2 | 3 | 62 | 19 |  |
-| 200 | 4 | 1 | 308 |  |  |  |  |  |
-| 204 |  |  | 11 |  |  |  |  |  |
+| 000 |  | 1 | 44 | 2 | 3 | 4 | 19 |  |
+| 200 | 4 | 1 | 313 |  |  |  |  |  |
+| 204 |  |  | 10 |  |  |  |  |  |
 | 400 |  |  | 5 |  |  | 1 |  |  |
 | 403 |  |  |  |  |  |  | 22 |  |
-| 404 |  |  | 10 |  |  |  |  |  |
+| 404 |  |  | 9 |  |  |  |  |  |
 | 499 |  |  |  |  |  |  |  | 11 |
-| 500 |  |  | 16 |  |  |  |  | 2 |
-| 502 |  |  | 1 |  |  |  |  |  |
+| 500 |  |  | 15 |  |  | 58 |  | 2 |
 
 # 404
 
@@ -39,10 +37,6 @@
 | r_sicili:98ae3ab4-99de-4caa-ad01-fa26165582ed | 404 | http://map.sitr.regione.sicilia.it/ArcGIS/services/CTR_LimitiAmministrativi/MapServer/WFSServer |
 | r_sicili:c923b84f-d01d-4658-a109-2edb0662ccff | 404 | http://map.sitr.regione.sicilia.it/ArcGIS/services/CTR_LimitiAmministrativi/MapServer/WMSServer |
 | r_sicili:e61df0ed-fd33-4537-8579-9857b4094afa | 404 | http://www.regione.sicilia.it/beniculturali/dirbenicult/bca/ptpr/pianopaesistico.html |
-| r_sicili:f26b8e57-06fe-4112-838d-18ec0bf1d85f | 404 | http://map.sitr.regione.sicilia.it/ArcGIS/services/AREE_URBANE/Ortofoto14cm_Messina_ata20122013/MapServer/WCSServer |
 
 # Risorse passate da 2** a 5**
 
-| id | http_code_old | IPA | http_code_latest |
-| --- | --- | --- | --- |
-| r_sicili:14ed4d54-3091-48c9-b6d0-8020d26eb6c9 | 200 | r_sicili | 502 |
