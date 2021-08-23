@@ -1,6 +1,2 @@
 id,http_code_old,IPA,http_code_latest
-r_sicili:f26b8e57-06fe-4112-838d-18ec0bf1d85f,200,r_sicili,404
-r_sicili:c1aeae5e-6a3b-4853-9fe8-47e74a5609fd,200,r_sicili,500
-c_a089:87b38490-efda-4fd5-950d-4a0010d6160d,000,c_a089,500
-p_ag:3be68dbe-ea3f-48df-a990-a40c8bc5daad,500,p_ag,404
-p_ag:db2e6f68-81fa-4e84-9c2d-e5020d3cff5f,500,p_ag,404
+r_sicili:98ae3ab4-99de-4caa-ad01-fa26165582ed,200,r_sicili,404
