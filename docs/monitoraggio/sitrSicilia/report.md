@@ -2,36 +2,34 @@
 
 | http_code | count |
 | --- | --- |
-| 200 | 375 |
-| 500 | 74 |
-| 000 | 72 |
-| 403 | 22 |
+| 200 | 377 |
+| 500 | 75 |
+| 000 | 74 |
 | 400 | 21 |
+| 403 | 21 |
 | 499 | 11 |
-| 404 | 10 |
 | 204 | 10 |
+| 404 | 8 |
 | 502 | 1 |
 
 # Conteggio per IPA 
 
-| http_code | c_a028 | c_a089 | r_sicili | c_a056 | p_cl | p_en | p_tp | p_ag |
+| http_code | c_a028 | c_a089 | p_tp | r_sicili | c_a056 | p_ag | p_cl | p_en |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 000 |  |  | 44 | 2 | 3 | 4 | 19 |  |
-| 200 | 4 | 1 | 370 |  |  |  |  |  |
-| 204 |  |  | 10 |  |  |  |  |  |
-| 400 |  |  | 20 |  |  | 1 |  |  |
-| 403 |  |  |  |  |  |  | 22 |  |
-| 404 |  |  | 8 |  |  |  |  | 2 |
-| 499 |  |  |  |  |  |  |  | 11 |
-| 500 |  | 1 | 15 |  |  | 58 |  |  |
-| 502 |  |  | 1 |  |  |  |  |  |
+| 000 |  |  | 19 | 44 | 2 | 2 | 3 | 4 |
+| 200 | 4 | 1 | 1 | 371 |  |  |  |  |
+| 204 |  |  |  | 10 |  |  |  |  |
+| 400 |  |  |  | 20 |  |  |  | 1 |
+| 403 |  |  | 21 |  |  |  |  |  |
+| 404 |  |  |  | 8 |  |  |  |  |
+| 499 |  |  |  |  |  | 11 |  |  |
+| 500 |  | 1 |  | 16 |  |  |  | 58 |
+| 502 |  |  |  | 1 |  |  |  |  |
 
 # 404
 
 | identifier | http_code | references |
 | --- | --- | --- |
-| p_ag:3be68dbe-ea3f-48df-a990-a40c8bc5daad | 404 | http://sit.provincia.agrigento.it/scaricabili/CTCM5K/ |
-| p_ag:db2e6f68-81fa-4e84-9c2d-e5020d3cff5f | 404 | http://sit.provincia.agrigento.it/scaricabili/grafo/grafo_9_agosto_2011.zip |
 | r_sicili:0fd6642e-4989-4c39-a4cb-a35ece402003 | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
 | r_sicili:15990177-b128-4f1e-8054-55c3e830a22f | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
 | r_sicili:7b2a7bf3-6d4f-46a8-8450-1374a0fe632d | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
@@ -45,4 +43,5 @@
 
 | id | http_code_old | IPA | http_code_latest |
 | --- | --- | --- | --- |
-| r_sicili:83bcdc7b-6849-4161-be85-9b3c5503ddc3 | 200 | r_sicili | 502 |
+| r_sicili:0b5b4da1-e1b6-47e1-960a-2bb18908ccb1 | 200 | r_sicili | 502 |
+| r_sicili:c1aeae5e-6a3b-4853-9fe8-47e74a5609fd | 200 | r_sicili | 500 |
