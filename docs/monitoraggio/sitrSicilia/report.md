@@ -2,34 +2,36 @@
 
 | http_code | count |
 | --- | --- |
-| 200 | 377 |
-| 500 | 75 |
-| 000 | 74 |
+| 200 | 381 |
+| 500 | 74 |
+| 000 | 55 |
 | 400 | 21 |
-| 403 | 21 |
 | 499 | 11 |
-| 204 | 10 |
-| 404 | 8 |
-| 502 | 1 |
+| 404 | 10 |
+| 204 | 9 |
+| 403 | 2 |
+| 502 | 2 |
 
 # Conteggio per IPA 
 
 | http_code | c_a028 | c_a089 | p_tp | r_sicili | c_a056 | p_ag | p_cl | p_en |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 000 |  |  | 19 | 44 | 2 | 2 | 3 | 4 |
-| 200 | 4 | 1 | 1 | 371 |  |  |  |  |
-| 204 |  |  |  | 10 |  |  |  |  |
+| 000 |  |  |  | 44 | 2 | 2 | 3 | 4 |
+| 200 | 4 | 1 | 4 | 372 |  |  |  |  |
+| 204 |  |  |  | 9 |  |  |  |  |
 | 400 |  |  |  | 20 |  |  |  | 1 |
-| 403 |  |  | 21 |  |  |  |  |  |
-| 404 |  |  |  | 8 |  |  |  |  |
+| 403 |  |  | 2 |  |  |  |  |  |
+| 404 |  |  | 2 | 8 |  |  |  |  |
 | 499 |  |  |  |  |  | 11 |  |  |
-| 500 |  | 1 |  | 16 |  |  |  | 58 |
-| 502 |  |  |  | 1 |  |  |  |  |
+| 500 |  | 1 |  | 15 |  |  |  | 58 |
+| 502 |  |  |  | 2 |  |  |  |  |
 
 # 404
 
 | identifier | http_code | references |
 | --- | --- | --- |
+| p_tp:471fb9c1-93f1-4382-93c1-916bb379f34d | 404 | http://sit.provincia.trapani.it/ArcGIS/rest/services/Aree_Protette_WGS84/MapServer/WMSSever |
+| p_tp:e9a2cf03-01d9-45d5-a7a4-1dcd5d3e1016 | 404 | http://sit.provincia.trapani.it/ArcGIS/rest/services/Viabilita_WGS84/MapServer/WMSSever |
 | r_sicili:0fd6642e-4989-4c39-a4cb-a35ece402003 | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
 | r_sicili:15990177-b128-4f1e-8054-55c3e830a22f | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
 | r_sicili:7b2a7bf3-6d4f-46a8-8450-1374a0fe632d | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
@@ -43,5 +45,4 @@
 
 | id | http_code_old | IPA | http_code_latest |
 | --- | --- | --- | --- |
-| r_sicili:0b5b4da1-e1b6-47e1-960a-2bb18908ccb1 | 200 | r_sicili | 502 |
-| r_sicili:c1aeae5e-6a3b-4853-9fe8-47e74a5609fd | 200 | r_sicili | 500 |
+| r_sicili:14ed4d54-3091-48c9-b6d0-8020d26eb6c9 | 200 | r_sicili | 502 |
