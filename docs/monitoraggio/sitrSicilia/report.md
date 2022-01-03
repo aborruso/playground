@@ -2,13 +2,13 @@
 
 | http_code | count |
 | --- | --- |
-| 200 | 381 |
+| 200 | 382 |
 | 500 | 74 |
-| 000 | 55 |
+| 000 | 56 |
 | 400 | 21 |
 | 499 | 11 |
-| 404 | 10 |
-| 204 | 9 |
+| 404 | 9 |
+| 204 | 8 |
 | 403 | 2 |
 | 502 | 2 |
 
@@ -16,12 +16,12 @@
 
 | http_code | c_a028 | c_a089 | p_tp | r_sicili | c_a056 | p_ag | p_cl | p_en |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 000 |  |  |  | 44 | 2 | 2 | 3 | 4 |
-| 200 | 4 | 1 | 4 | 372 |  |  |  |  |
-| 204 |  |  |  | 9 |  |  |  |  |
+| 000 |  |  |  | 45 | 2 | 2 | 3 | 4 |
+| 200 | 4 | 1 | 6 | 371 |  |  |  |  |
+| 204 |  |  |  | 8 |  |  |  |  |
 | 400 |  |  |  | 20 |  |  |  | 1 |
 | 403 |  |  | 2 |  |  |  |  |  |
-| 404 |  |  | 2 | 8 |  |  |  |  |
+| 404 |  |  |  | 9 |  |  |  |  |
 | 499 |  |  |  |  |  | 11 |  |  |
 | 500 |  | 1 |  | 15 |  |  |  | 58 |
 | 502 |  |  |  | 2 |  |  |  |  |
@@ -30,10 +30,9 @@
 
 | identifier | http_code | references |
 | --- | --- | --- |
-| p_tp:471fb9c1-93f1-4382-93c1-916bb379f34d | 404 | http://sit.provincia.trapani.it/ArcGIS/rest/services/Aree_Protette_WGS84/MapServer/WMSSever |
-| p_tp:e9a2cf03-01d9-45d5-a7a4-1dcd5d3e1016 | 404 | http://sit.provincia.trapani.it/ArcGIS/rest/services/Viabilita_WGS84/MapServer/WMSSever |
 | r_sicili:0fd6642e-4989-4c39-a4cb-a35ece402003 | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
 | r_sicili:15990177-b128-4f1e-8054-55c3e830a22f | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
+| r_sicili:2a94d860-bce7-4a14-972b-d213ec44ef62 | 404 | http://map.sitr.regione.sicilia.it/ArcGIS/services/WGS84_F33/Quickbird_2006-2007_f33/MapServer/WMSServer |
 | r_sicili:7b2a7bf3-6d4f-46a8-8450-1374a0fe632d | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
 | r_sicili:8d37e913-7883-489e-a0b6-37d6e4d96a13 | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
 | r_sicili:98ae3ab4-99de-4caa-ad01-fa26165582ed | 404 | http://map.sitr.regione.sicilia.it/ArcGIS/services/CTR_LimitiAmministrativi/MapServer/WFSServer |
@@ -45,4 +44,4 @@
 
 | id | http_code_old | IPA | http_code_latest |
 | --- | --- | --- | --- |
-| r_sicili:14ed4d54-3091-48c9-b6d0-8020d26eb6c9 | 200 | r_sicili | 502 |
+| r_sicili:c4eedd1b-c571-472f-bfda-3f7eb3ae3b2c | 204 | r_sicili | 502 |
