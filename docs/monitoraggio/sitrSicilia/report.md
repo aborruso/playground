@@ -2,34 +2,35 @@
 
 | http_code | count |
 | --- | --- |
-| 200 | 383 |
-| 500 | 75 |
+| 200 | 384 |
+| 500 | 74 |
 | 000 | 55 |
 | 400 | 21 |
 | 499 | 11 |
-| 404 | 8 |
+| 404 | 9 |
 | 204 | 7 |
-| 502 | 3 |
 | 403 | 2 |
+| 502 | 2 |
 
 # Conteggio per IPA 
 
 | http_code | c_a028 | c_a089 | p_tp | r_sicili | c_a056 | p_ag | p_cl | p_en |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 000 |  |  |  | 44 | 2 | 2 | 3 | 4 |
-| 200 | 4 | 1 | 6 | 372 |  |  |  |  |
+| 200 | 4 | 1 | 6 | 373 |  |  |  |  |
 | 204 |  |  |  | 7 |  |  |  |  |
 | 400 |  |  |  | 20 |  |  |  | 1 |
 | 403 |  |  | 2 |  |  |  |  |  |
-| 404 |  |  |  | 8 |  |  |  |  |
+| 404 |  | 1 |  | 8 |  |  |  |  |
 | 499 |  |  |  |  |  | 11 |  |  |
-| 500 |  | 1 |  | 16 |  |  |  | 58 |
-| 502 |  |  |  | 3 |  |  |  |  |
+| 500 |  |  |  | 16 |  |  |  | 58 |
+| 502 |  |  |  | 2 |  |  |  |  |
 
 # 404
 
 | identifier | http_code | references |
 | --- | --- | --- |
+| c_a089:87b38490-efda-4fd5-950d-4a0010d6160d | 404 | http://www.comune.agrigento.sitr.it/ArcGIS/services/Agrigento/Catasto/MapServer/WMSServer? |
 | r_sicili:0fd6642e-4989-4c39-a4cb-a35ece402003 | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
 | r_sicili:15990177-b128-4f1e-8054-55c3e830a22f | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
 | r_sicili:7b2a7bf3-6d4f-46a8-8450-1374a0fe632d | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
@@ -43,4 +44,4 @@
 
 | id | http_code_old | IPA | http_code_latest |
 | --- | --- | --- | --- |
-| r_sicili:545ac0f6-17fc-41ae-a640-d2a657b25eea | 200 | r_sicili | 502 |
+| r_sicili:34f12048-61e5-47cc-995d-ef3bd61fd34f | 200 | r_sicili | 502 |
