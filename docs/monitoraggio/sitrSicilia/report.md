@@ -2,11 +2,11 @@
 
 | http_code | count |
 | --- | --- |
-| 200 | 299 |
-| 000 | 154 |
+| 200 | 396 |
 | 500 | 58 |
+| 000 | 56 |
 | 499 | 11 |
-| 404 | 9 |
+| 404 | 10 |
 | 400 | 7 |
 | 403 | 2 |
 
@@ -14,11 +14,11 @@
 
 | http_code | c_a028 | c_a089 | p_tp | r_sicili | c_a056 | p_ag | p_cl | p_en |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 000 |  |  |  | 142 | 2 | 2 | 3 | 5 |
-| 200 | 4 | 1 | 6 | 288 |  |  |  |  |
+| 000 |  |  |  | 44 | 2 | 2 | 3 | 5 |
+| 200 | 4 | 1 | 6 | 385 |  |  |  |  |
 | 400 |  |  |  | 7 |  |  |  |  |
 | 403 |  |  | 2 |  |  |  |  |  |
-| 404 |  | 1 |  | 8 |  |  |  |  |
+| 404 |  | 1 |  | 9 |  |  |  |  |
 | 499 |  |  |  |  |  | 11 |  |  |
 | 500 |  |  |  |  |  |  |  | 58 |
 
@@ -35,6 +35,7 @@
 | r_sicili:8d37e913-7883-489e-a0b6-37d6e4d96a13 | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
 | r_sicili:9709de2a-2516-4723-b7c8-c98fba1e6f2f | 404 | https://map.sitr.regione.sicilia.it/gis/services/Ambiente/Carta_Desertificazione_WGS84_f33_/MapServer/WMSServer |
 | r_sicili:bdcf07c5-351c-4f86-8cc4-803fa53a6617 | 404 | https://map.sitr.regione.sicilia.it/gis/services/piani_paesaggisticii/rg_componenti_paesaggio/MapServer/WMSServer |
+| r_sicili:e61df0ed-fd33-4537-8579-9857b4094afa | 404 | http://www.regione.sicilia.it/beniculturali/dirbenicult/bca/ptpr/pianopaesistico.html |
 
 # Risorse passate da 2** a 5**
 
