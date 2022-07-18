@@ -2,11 +2,11 @@
 
 | http_code | count |
 | --- | --- |
-| 200 | 397 |
+| 200 | 396 |
 | 500 | 58 |
 | 000 | 56 |
 | 499 | 11 |
-| 404 | 9 |
+| 404 | 10 |
 | 400 | 7 |
 | 403 | 2 |
 
@@ -15,10 +15,10 @@
 | http_code | c_a028 | c_a089 | p_tp | r_sicili | c_a056 | p_ag | p_cl | p_en |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 000 |  |  |  | 44 | 2 | 2 | 3 | 5 |
-| 200 | 4 | 1 | 6 | 386 |  |  |  |  |
+| 200 | 4 | 1 | 6 | 385 |  |  |  |  |
 | 400 |  |  |  | 7 |  |  |  |  |
 | 403 |  |  | 2 |  |  |  |  |  |
-| 404 |  | 1 |  | 8 |  |  |  |  |
+| 404 |  | 1 |  | 9 |  |  |  |  |
 | 499 |  |  |  |  |  | 11 |  |  |
 | 500 |  |  |  |  |  |  |  | 58 |
 
@@ -29,6 +29,7 @@
 | c_a089:87b38490-efda-4fd5-950d-4a0010d6160d | 404 | http://www.comune.agrigento.sitr.it/ArcGIS/services/Agrigento/Catasto/MapServer/WMSServer? |
 | r_sicili:0fd6642e-4989-4c39-a4cb-a35ece402003 | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
 | r_sicili:15990177-b128-4f1e-8054-55c3e830a22f | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
+| r_sicili:38273244-be94-45bc-9149-fdff807f26a6 | 404 | http://pti.regione.sicilia.it/portal/page/portal/PIR_PORTALE/PIR_LaStrutturaRegionale/PIR_PresidenzadellaRegione/PIR_ProtezioneCivile |
 | r_sicili:6861afd7-99bb-4474-b1c8-376dc8447f62 | 404 | https://map.sitr.regione.sicilia.it/gis/services/ATA_2012_2013/Ortofoto_ATA_2012_2013_Messina_14cm/MapServer/WMSServer |
 | r_sicili:7490ffca-d3b4-495e-a46f-7b35c1d0926b | 404 | https://map.sitr.regione.sicilia.it/gis/services/modelli_digitali/mdt_40m_it2000/ImageServer/WCSServer?&service=WCS |
 | r_sicili:7b2a7bf3-6d4f-46a8-8450-1374a0fe632d | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
