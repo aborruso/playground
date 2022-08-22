@@ -2,10 +2,10 @@
 
 | http_code | count |
 | --- | --- |
-| 200 | 394 |
+| 200 | 396 |
 | 500 | 58 |
 | 000 | 56 |
-| 404 | 13 |
+| 404 | 11 |
 | 499 | 11 |
 | 400 | 6 |
 | 403 | 2 |
@@ -15,10 +15,10 @@
 | http_code | c_a028 | c_a089 | p_tp | r_sicili | c_a056 | p_ag | p_cl | p_en |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 000 |  |  |  | 44 | 2 | 2 | 3 | 5 |
-| 200 | 4 | 1 | 4 | 385 |  |  |  |  |
+| 200 | 4 | 1 | 6 | 385 |  |  |  |  |
 | 400 |  |  |  | 6 |  |  |  |  |
 | 403 |  |  | 2 |  |  |  |  |  |
-| 404 |  | 1 | 2 | 10 |  |  |  |  |
+| 404 |  | 1 |  | 10 |  |  |  |  |
 | 499 |  |  |  |  |  | 11 |  |  |
 | 500 |  |  |  |  |  |  |  | 58 |
 
@@ -27,8 +27,6 @@
 | identifier | http_code | references |
 | --- | --- | --- |
 | c_a089:87b38490-efda-4fd5-950d-4a0010d6160d | 404 | http://www.comune.agrigento.sitr.it/ArcGIS/services/Agrigento/Catasto/MapServer/WMSServer? |
-| p_tp:471fb9c1-93f1-4382-93c1-916bb379f34d | 404 | http://sit.provincia.trapani.it/ArcGIS/rest/services/Aree_Protette_WGS84/MapServer/WMSSever |
-| p_tp:e9a2cf03-01d9-45d5-a7a4-1dcd5d3e1016 | 404 | http://sit.provincia.trapani.it/ArcGIS/rest/services/Viabilita_WGS84/MapServer/WMSSever |
 | r_sicili:0fd6642e-4989-4c39-a4cb-a35ece402003 | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
 | r_sicili:13f554f7-aa5b-4e5a-b34e-6c73abd2cfd0 | 404 | https://map.sitr.regione.sicilia.it/orbs/services/raster/Slope2x2_ata0708/MapServer/WMSServer |
 | r_sicili:15990177-b128-4f1e-8054-55c3e830a22f | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
