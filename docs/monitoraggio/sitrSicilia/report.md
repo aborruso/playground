@@ -2,23 +2,23 @@
 
 | http_code | count |
 | --- | --- |
-| 200 | 347 |
+| 200 | 348 |
 | 000 | 203 |
 | 499 | 11 |
 | 404 | 6 |
-| 503 | 3 |
 | 403 | 2 |
+| 503 | 2 |
 
 # Conteggio per IPA 
 
 | http_code | c_a028 | c_a089 | p_tp | r_sicili | c_a056 | p_ag | p_cl | p_en |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 000 |  |  |  | 133 | 2 | 2 | 3 | 63 |
-| 200 | 4 | 1 | 6 | 336 |  |  |  |  |
+| 200 | 4 | 1 | 6 | 337 |  |  |  |  |
 | 403 |  |  | 2 |  |  |  |  |  |
 | 404 |  | 1 |  | 5 |  |  |  |  |
 | 499 |  |  |  |  |  | 11 |  |  |
-| 503 |  |  |  | 3 |  |  |  |  |
+| 503 |  |  |  | 2 |  |  |  |  |
 
 # 404
 
@@ -35,6 +35,5 @@
 
 | id | http_code_old | IPA | http_code_latest |
 | --- | --- | --- | --- |
-| r_sicili:af0a4f7e-afe0-49ef-92d5-bdf6bfda28c7 | 200 | r_sicili | 503 |
-| r_sicili:b2411485-a0b3-45a5-92bd-180c97669256 | 200 | r_sicili | 503 |
-| r_sicili:3c75ce1e-f9c8-4c85-984a-d82ea89b42bf | 200 | r_sicili | 503 |
+| r_sicili:9712c7ad-ccf8-47fd-9453-8d84e412a862 | 200 | r_sicili | 503 |
+| r_sicili:e5ea1548-dd80-4e95-aa4f-baaf7a453d12 | 200 | r_sicili | 503 |
