@@ -1,2 +1,5 @@
 id,http_code_old,IPA,http_code_latest
-r_sicili:0037168e-ee46-4dfc-9299-b32ec537b4d7,200,r_sicili,403
+r_sicili:0037168e-ee46-4dfc-9299-b32ec537b4d7,403,r_sicili,404
+r_sicili:86cabfac-e4fb-4379-9474-f2f41d57086c,403,r_sicili,404
+r_sicili:5664436a-c0d4-40f3-ad38-92579aab523e,200,r_sicili,404
+r_sicili:34ed52e9-76e2-4ad5-8dd9-5f4e131ce7a1,403,r_sicili,302

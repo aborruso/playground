@@ -2,20 +2,22 @@
 
 | http_code | count |
 | --- | --- |
-| 200 | 215 |
+| 200 | 214 |
 | 000 | 151 |
 | 500 | 58 |
-| 404 | 17 |
-| 403 | 5 |
+| 404 | 20 |
+| 403 | 2 |
+| 302 | 1 |
 
 # Conteggio per IPA 
 
 | http_code | c_a028 | c_a089 | p_tp | r_sicili | c_a056 | p_ag | p_cl | p_en |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 000 |  |  |  | 139 | 2 | 2 | 3 | 5 |
-| 200 | 4 | 1 | 6 | 204 |  |  |  |  |
-| 403 |  |  | 2 | 3 |  |  |  |  |
-| 404 |  | 1 |  | 5 |  | 11 |  |  |
+| 200 | 4 | 1 | 6 | 203 |  |  |  |  |
+| 302 |  |  |  | 1 |  |  |  |  |
+| 403 |  |  | 2 |  |  |  |  |  |
+| 404 |  | 1 |  | 8 |  | 11 |  |  |
 | 500 |  |  |  |  |  |  |  | 58 |
 
 # 404
@@ -34,9 +36,12 @@
 | p_ag:d16b72eb-b846-4987-a593-49e8360dc341 | 404 | http://www.provincia.agrigento.sitr.it/ArcGIS/services/CTR5Kcasmez/MapServer/WMSServer |
 | p_ag:f47180a8-58b8-4cf4-b44e-0364c3d41744 | 404 | http://www.provincia.agrigento.sitr.it/ArcGIS/services/CTR_ediz94/MapServer/WMSServer |
 | p_ag:fe29eacb-c32a-424d-87e4-3d54ed07a5df | 404 | http://www.provincia.agrigento.sitr.it/ArcGIS/services/CTR_ediz81/MapServer/WMSServer |
+| r_sicili:0037168e-ee46-4dfc-9299-b32ec537b4d7 | 404 | http://ascian.dlinkddns.com/cgi-bin/mapserv?map=/var/www/madoniepmapper/config/default/altri_alberi_2010.map |
 | r_sicili:0fd6642e-4989-4c39-a4cb-a35ece402003 | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
 | r_sicili:15990177-b128-4f1e-8054-55c3e830a22f | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
+| r_sicili:5664436a-c0d4-40f3-ad38-92579aab523e | 404 | http://ascian.dlinkddns.com/cgi-bin/mapserv?map=/var/www/madoniepmapper/config/default/sentieri_1_3D.map |
 | r_sicili:7b2a7bf3-6d4f-46a8-8450-1374a0fe632d | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
+| r_sicili:86cabfac-e4fb-4379-9474-f2f41d57086c | 404 | http://ascian.dlinkddns.com/cgi-bin/mapserv?map=/var/www/madoniepmapper/config/default/alberi_monumentali_2010.map |
 | r_sicili:8d37e913-7883-489e-a0b6-37d6e4d96a13 | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
 | r_sicili:e61df0ed-fd33-4537-8579-9857b4094afa | 404 | http://www.regione.sicilia.it/beniculturali/dirbenicult/bca/ptpr/pianopaesistico.html |
 
