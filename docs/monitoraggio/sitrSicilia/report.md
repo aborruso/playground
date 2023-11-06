@@ -2,20 +2,20 @@
 
 | http_code | count |
 | --- | --- |
-| 200 | 217 |
-| 000 | 151 |
+| 200 | 212 |
+| 000 | 153 |
 | 500 | 58 |
-| 404 | 18 |
-| 403 | 2 |
+| 404 | 19 |
+| 439 | 4 |
 
 # Conteggio per IPA 
 
 | http_code | c_a028 | c_a089 | p_tp | r_sicili | c_a056 | p_ag | p_cl | p_en |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 000 |  |  |  | 139 | 2 | 2 | 3 | 5 |
-| 200 | 4 | 1 | 5 | 207 |  |  |  |  |
-| 403 |  |  | 2 |  |  |  |  |  |
-| 404 |  | 1 | 1 | 5 |  | 11 |  |  |
+| 000 |  |  | 2 | 139 | 2 | 2 | 3 | 5 |
+| 200 | 4 | 1 | 4 | 203 |  |  |  |  |
+| 404 |  | 1 | 2 | 5 |  | 11 |  |  |
+| 439 |  |  |  | 4 |  |  |  |  |
 | 500 |  |  |  |  |  |  |  | 58 |
 
 # 404
@@ -34,7 +34,8 @@
 | p_ag:d16b72eb-b846-4987-a593-49e8360dc341 | 404 | http://www.provincia.agrigento.sitr.it/ArcGIS/services/CTR5Kcasmez/MapServer/WMSServer |
 | p_ag:f47180a8-58b8-4cf4-b44e-0364c3d41744 | 404 | http://www.provincia.agrigento.sitr.it/ArcGIS/services/CTR_ediz94/MapServer/WMSServer |
 | p_ag:fe29eacb-c32a-424d-87e4-3d54ed07a5df | 404 | http://www.provincia.agrigento.sitr.it/ArcGIS/services/CTR_ediz81/MapServer/WMSServer |
-| p_tp:e9a2cf03-01d9-45d5-a7a4-1dcd5d3e1016 | 404 | http://sit.provincia.trapani.it/ArcGIS/rest/services/Viabilita_WGS84/MapServer/WMSSever |
+| p_tp:471fb9c1-93f1-4382-93c1-916bb379f34d | 404 | http://sit.provincia.trapani.it/ArcGIS/rest/services/Aree_Protette_WGS84/MapServer/WMSSever |
+| p_tp:767abfad-a0e3-4197-8c54-544ee710813e | 404 | http://sit.provincia.trapani.it/ArcGIS/rest/services/Confini_WGS84/MapServer/WMSSever |
 | r_sicili:0fd6642e-4989-4c39-a4cb-a35ece402003 | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
 | r_sicili:15990177-b128-4f1e-8054-55c3e830a22f | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
 | r_sicili:7b2a7bf3-6d4f-46a8-8450-1374a0fe632d | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |

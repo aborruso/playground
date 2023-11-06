@@ -1,2 +1,9 @@
 id,http_code_old,IPA,http_code_latest
-p_tp:e9a2cf03-01d9-45d5-a7a4-1dcd5d3e1016,200,p_tp,404
+p_tp:23e72426-a990-48bc-9d6e-f9fcc61b6543,403,p_tp,000
+r_sicili:0037168e-ee46-4dfc-9299-b32ec537b4d7,200,r_sicili,439
+p_tp:904a011a-507b-4a55-8f56-7f4222a5e6f7,403,p_tp,000
+r_sicili:86cabfac-e4fb-4379-9474-f2f41d57086c,200,r_sicili,439
+r_sicili:5664436a-c0d4-40f3-ad38-92579aab523e,200,r_sicili,439
+r_sicili:34ed52e9-76e2-4ad5-8dd9-5f4e131ce7a1,200,r_sicili,439
+p_tp:471fb9c1-93f1-4382-93c1-916bb379f34d,200,p_tp,404
+p_tp:767abfad-a0e3-4197-8c54-544ee710813e,200,p_tp,404
