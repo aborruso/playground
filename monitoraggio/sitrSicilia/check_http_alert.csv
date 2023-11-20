@@ -1,3 +1,6 @@
 id,http_code_old,IPA,http_code_latest
-p_tp:23e72426-a990-48bc-9d6e-f9fcc61b6543,000,p_tp,403
-p_tp:904a011a-507b-4a55-8f56-7f4222a5e6f7,000,p_tp,403
+c_a028:925f69dd-6a8f-49d1-be25-66db1b04f9cc,200,c_a028,503
+r_sicili:34ed52e9-76e2-4ad5-8dd9-5f4e131ce7a1,200,r_sicili,403
+c_a028:911619ad-4813-4f51-afe8-eea780ac04c3,200,c_a028,503
+c_a028:b7f85eaf-727e-48bb-a368-eccb44bbaa99,200,c_a028,503
+c_a028:6bede6d8-4d84-4034-ab26-06ae2e0dae24,200,c_a028,503
