@@ -2,25 +2,21 @@
 
 | http_code | count |
 | --- | --- |
-| 200 | 209 |
-| 000 | 151 |
-| 500 | 58 |
-| 404 | 18 |
-| 403 | 5 |
-| 503 | 4 |
-| 439 | 1 |
+| 200 | 216 |
+| 000 | 209 |
+| 404 | 17 |
+| 403 | 2 |
+| 503 | 2 |
 
 # Conteggio per IPA 
 
-| http_code | c_a028 | c_a056 | p_ag | p_cl | p_en | r_sicili | c_a089 | p_tp |
+| http_code | c_a028 | c_a089 | p_tp | r_sicili | c_a056 | p_ag | p_cl | p_en |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 000 |  | 2 | 2 | 3 | 5 | 139 |  |  |
-| 200 |  |  |  |  |  | 203 | 1 | 5 |
-| 403 |  |  |  |  |  | 3 |  | 2 |
-| 404 |  |  | 11 |  |  | 5 | 1 | 1 |
-| 439 |  |  |  |  |  | 1 |  |  |
-| 500 |  |  |  |  | 58 |  |  |  |
-| 503 | 4 |  |  |  |  |  |  |  |
+| 000 |  |  |  | 139 | 2 | 2 | 3 | 63 |
+| 200 | 4 | 1 | 6 | 205 |  |  |  |  |
+| 403 |  |  | 2 |  |  |  |  |  |
+| 404 |  | 1 |  | 5 |  | 11 |  |  |
+| 503 |  |  |  | 2 |  |  |  |  |
 
 # 404
 
@@ -38,7 +34,6 @@
 | p_ag:d16b72eb-b846-4987-a593-49e8360dc341 | 404 | http://www.provincia.agrigento.sitr.it/ArcGIS/services/CTR5Kcasmez/MapServer/WMSServer |
 | p_ag:f47180a8-58b8-4cf4-b44e-0364c3d41744 | 404 | http://www.provincia.agrigento.sitr.it/ArcGIS/services/CTR_ediz94/MapServer/WMSServer |
 | p_ag:fe29eacb-c32a-424d-87e4-3d54ed07a5df | 404 | http://www.provincia.agrigento.sitr.it/ArcGIS/services/CTR_ediz81/MapServer/WMSServer |
-| p_tp:471fb9c1-93f1-4382-93c1-916bb379f34d | 404 | http://sit.provincia.trapani.it/ArcGIS/rest/services/Aree_Protette_WGS84/MapServer/WMSSever |
 | r_sicili:0fd6642e-4989-4c39-a4cb-a35ece402003 | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
 | r_sicili:15990177-b128-4f1e-8054-55c3e830a22f | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
 | r_sicili:7b2a7bf3-6d4f-46a8-8450-1374a0fe632d | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
@@ -47,3 +42,7 @@
 
 # Risorse passate da 2** a 5**
 
+| id | http_code_old | IPA | http_code_latest |
+| --- | --- | --- | --- |
+| r_sicili:9712c7ad-ccf8-47fd-9453-8d84e412a862 | 200 | r_sicili | 503 |
+| r_sicili:e5ea1548-dd80-4e95-aa4f-baaf7a453d12 | 200 | r_sicili | 503 |
