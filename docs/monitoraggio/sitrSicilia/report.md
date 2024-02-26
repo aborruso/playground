@@ -2,11 +2,10 @@
 
 | http_code | count |
 | --- | --- |
-| 200 | 208 |
+| 200 | 210 |
 | 000 | 159 |
-| 500 | 58 |
+| 500 | 61 |
 | 404 | 17 |
-| 502 | 5 |
 | 403 | 2 |
 
 # Conteggio per IPA 
@@ -14,11 +13,10 @@
 | http_code | c_a028 | c_a056 | p_ag | p_cl | p_en | r_sicili | c_a089 | p_tp |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 000 | 4 | 2 | 2 | 3 | 5 | 143 |  |  |
-| 200 |  |  |  |  |  | 201 | 1 | 6 |
+| 200 |  |  |  |  |  | 203 | 1 | 6 |
 | 403 |  |  |  |  |  |  |  | 2 |
 | 404 |  |  | 11 |  |  | 5 | 1 |  |
-| 500 |  |  |  |  | 58 |  |  |  |
-| 502 |  |  |  |  |  | 5 |  |  |
+| 500 |  |  |  |  | 58 | 3 |  |  |
 
 # 404
 
@@ -44,10 +42,3 @@
 
 # Risorse passate da 2** a 5**
 
-| id | http_code_old | IPA | http_code_latest |
-| --- | --- | --- | --- |
-| r_sicili:a46eda9b-330b-49ce-9501-d86a0a26dcdf | 200 | r_sicili | 502 |
-| r_sicili:78b90558-f5d3-474e-97ba-a92774e8e66b | 200 | r_sicili | 502 |
-| r_sicili:4095bf22-ce3b-4b30-a86c-da3cab225907 | 200 | r_sicili | 502 |
-| r_sicili:9e90012e-f06f-401a-bbe2-fb75451e7b6f | 200 | r_sicili | 502 |
-| r_sicili:b89ee71b-fa22-4d69-b2d9-2aca7b526be7 | 200 | r_sicili | 502 |
