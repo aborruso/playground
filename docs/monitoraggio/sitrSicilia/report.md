@@ -2,10 +2,11 @@
 
 | http_code | count |
 | --- | --- |
-| 200 | 210 |
+| 200 | 209 |
 | 000 | 159 |
-| 500 | 61 |
-| 404 | 17 |
+| 500 | 58 |
+| 404 | 18 |
+| 502 | 3 |
 | 403 | 2 |
 
 # Conteggio per IPA 
@@ -13,10 +14,11 @@
 | http_code | c_a028 | c_a056 | p_ag | p_cl | p_en | r_sicili | c_a089 | p_tp |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 000 | 4 | 2 | 2 | 3 | 5 | 143 |  |  |
-| 200 |  |  |  |  |  | 203 | 1 | 6 |
+| 200 |  |  |  |  |  | 203 | 1 | 5 |
 | 403 |  |  |  |  |  |  |  | 2 |
-| 404 |  |  | 11 |  |  | 5 | 1 |  |
-| 500 |  |  |  |  | 58 | 3 |  |  |
+| 404 |  |  | 11 |  |  | 5 | 1 | 1 |
+| 500 |  |  |  |  | 58 |  |  |  |
+| 502 |  |  |  |  |  | 3 |  |  |
 
 # 404
 
@@ -34,6 +36,7 @@
 | p_ag:d16b72eb-b846-4987-a593-49e8360dc341 | 404 | http://www.provincia.agrigento.sitr.it/ArcGIS/services/CTR5Kcasmez/MapServer/WMSServer |
 | p_ag:f47180a8-58b8-4cf4-b44e-0364c3d41744 | 404 | http://www.provincia.agrigento.sitr.it/ArcGIS/services/CTR_ediz94/MapServer/WMSServer |
 | p_ag:fe29eacb-c32a-424d-87e4-3d54ed07a5df | 404 | http://www.provincia.agrigento.sitr.it/ArcGIS/services/CTR_ediz81/MapServer/WMSServer |
+| p_tp:767abfad-a0e3-4197-8c54-544ee710813e | 404 | http://sit.provincia.trapani.it/ArcGIS/rest/services/Confini_WGS84/MapServer/WMSSever |
 | r_sicili:0fd6642e-4989-4c39-a4cb-a35ece402003 | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
 | r_sicili:15990177-b128-4f1e-8054-55c3e830a22f | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
 | r_sicili:7b2a7bf3-6d4f-46a8-8450-1374a0fe632d | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
@@ -42,3 +45,8 @@
 
 # Risorse passate da 2** a 5**
 
+| id | http_code_old | IPA | http_code_latest |
+| --- | --- | --- | --- |
+| r_sicili:9633d035-9e05-47cd-8bcb-bd5a4b0aebfa | 200 | r_sicili | 502 |
+| r_sicili:c333cb73-34fd-4122-a4e2-15e8fc2e9c18 | 200 | r_sicili | 502 |
+| r_sicili:6cb6b12a-bfcc-4230-b256-74d6f0d360c8 | 200 | r_sicili | 502 |
