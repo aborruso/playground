@@ -4,16 +4,16 @@
 | --- | --- |
 | 000 | 148 |
 | 500 | 58 |
-| 404 | 12 |
-| 200 | 7 |
+| 404 | 13 |
+| 200 | 6 |
 
 # Conteggio per IPA 
 
 | http_code | c_a028 | c_a056 | p_cl | p_en | r_sicili | c_a089 | p_ag | p_tp |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 000 | 4 | 2 | 2 | 5 | 135 |  |  |  |
-| 200 |  |  |  |  | 1 |  |  | 6 |
-| 404 |  |  |  |  |  | 1 | 11 |  |
+| 200 |  |  |  |  | 1 |  |  | 5 |
+| 404 |  |  |  |  |  | 1 | 11 | 1 |
 | 500 |  |  |  | 58 |  |  |  |  |
 
 # 404
@@ -32,6 +32,7 @@
 | p_ag:d16b72eb-b846-4987-a593-49e8360dc341 | 404 | http://www.provincia.agrigento.sitr.it/ArcGIS/services/CTR5Kcasmez/MapServer/WMSServer |
 | p_ag:f47180a8-58b8-4cf4-b44e-0364c3d41744 | 404 | http://www.provincia.agrigento.sitr.it/ArcGIS/services/CTR_ediz94/MapServer/WMSServer |
 | p_ag:fe29eacb-c32a-424d-87e4-3d54ed07a5df | 404 | http://www.provincia.agrigento.sitr.it/ArcGIS/services/CTR_ediz81/MapServer/WMSServer |
+| p_tp:767abfad-a0e3-4197-8c54-544ee710813e | 404 | http://sit.provincia.trapani.it/ArcGIS/rest/services/Confini_WGS84/MapServer/WMSSever |
 
 # Risorse passate da 2** a 5**
 
