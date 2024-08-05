@@ -2,19 +2,19 @@
 
 | http_code | count |
 | --- | --- |
-| 200 | 210 |
-| 000 | 162 |
-| 404 | 75 |
+| 000 | 220 |
+| 200 | 130 |
+| 404 | 97 |
 | 403 | 2 |
 
 # Conteggio per IPA 
 
 | http_code | c_a028 | c_a056 | p_ag | p_cl | p_en | r_sicili | c_a089 | p_tp |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 000 | 4 | 2 | 2 | 3 | 5 | 146 |  |  |
-| 200 |  |  |  |  |  | 203 | 1 | 6 |
+| 000 | 4 | 2 | 2 | 3 | 63 | 146 |  |  |
+| 200 |  |  |  |  |  | 124 | 1 | 5 |
 | 403 |  |  |  |  |  |  |  | 2 |
-| 404 |  |  | 11 |  | 58 | 5 | 1 |  |
+| 404 |  |  | 11 |  |  | 84 | 1 | 1 |
 
 # 404
 
@@ -32,69 +32,91 @@
 | p_ag:d16b72eb-b846-4987-a593-49e8360dc341 | 404 | http://www.provincia.agrigento.sitr.it/ArcGIS/services/CTR5Kcasmez/MapServer/WMSServer |
 | p_ag:f47180a8-58b8-4cf4-b44e-0364c3d41744 | 404 | http://www.provincia.agrigento.sitr.it/ArcGIS/services/CTR_ediz94/MapServer/WMSServer |
 | p_ag:fe29eacb-c32a-424d-87e4-3d54ed07a5df | 404 | http://www.provincia.agrigento.sitr.it/ArcGIS/services/CTR_ediz81/MapServer/WMSServer |
-| p_en:0199ab93-2a84-4484-a7b6-b0d8d573592b | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/Rilievo_tridimensionale/MapServer/WMSServer |
-| p_en:025040aa-3fa6-41e9-8ed3-74f528c594e7 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/PDG/PDG_Imera_Merid/MapServer/WMSServer |
-| p_en:0332366f-3408-4602-8894-c3c710753d77 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/Quadro_Unione_25000_EN/MapServer/WMSServer |
-| p_en:040b441c-e8fe-4d31-847c-d0ebcdb0ee5d | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/Flussi_pendolarismo_OD_Comuni_EN/MapServer/WMSServer |
-| p_en:0450c77e-d4d0-4bf3-af8a-6fe60b44b7dc | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/DTM/MapServer/WMSServer |
-| p_en:067769e7-59b0-4d39-980f-ebbe241a16a8 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/AREE_PERCORSE_DAL_FUOCO/MapServer/WMSServer |
-| p_en:0aff6cc1-116c-4f35-af9f-d4b9b458793f | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/FARMACIE_EN_2013_01_21/MapServer/WMSServer |
-| p_en:0de662f3-2bea-42ac-9329-979480f7a26b | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/Autolinee_Urbane_Provincia_Enna/MapServer/WMSServer |
-| p_en:19673e78-4689-4da6-a95a-4c0991f4cb25 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/VINCOLI_SISTEMA_ANTROPICO_AMBIENTALE_EN/MapServer/WMSServer |
-| p_en:1cd8c624-d8bc-4314-b6df-c28671373b6e | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/Quadro_Unione_100000_EN/MapServer/WMSServer |
-| p_en:1d2aa4db-344e-46b6-b290-e93263efc826 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/Intervisibilita/MapServer/WMSServer |
-| p_en:24f2e588-cfc9-4264-a1cd-839a1df802c5 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/TESSUTO_PRODUTTIVO_EN/MapServer/WMSServer |
-| p_en:3c954a9c-2002-48fb-a8de-c02cf284c08c | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/PDG/PDG_BoschiResidui/MapServer/WMSServer |
-| p_en:57ee0702-c375-4e77-82cb-eeb15b021863 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/PRODOTTI_TIPICI_EN/MapServer/WMSServer |
-| p_en:61766991-bfe3-4b81-934f-dbbfd50a6f48 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/RETE_FERROVIARIA_PROVINCIALE/MapServer/WMSServer |
-| p_en:62591b37-cebb-4ab0-bf03-397343cab069 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/CARTA_NATURA_TIPO_PAESAGGI/MapServer/WMSServer |
-| p_en:6aa3fe1c-ae94-440b-b017-284b8a5b808f | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/RETICOLO_IDROGRAFICO_ENNA/MapServer/WMSServer |
-| p_en:6bcd424b-d58d-4438-b13b-a2e0f9c816b7 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/RETE_TRAZZERALE_PROV/MapServer/WMSServer |
-| p_en:6c3380a3-82b8-4de1-a698-152719fe932c | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/PDG/PDG_Vallone/MapServer/WMSServer |
-| p_en:6ee21955-320b-4797-be8e-cbd1de4299a1 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/PATRIMONIO_ARCHEOLOGICO_STORICO_ARCHITETTONICO_EN/MapServer/WMSServer |
-| p_en:6f2e5533-c78f-45c7-8a94-3e7a591c16b9 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/LIMITI_AMMINISTRATIVI/MapServer/WMSServer |
-| p_en:711a4030-2752-40cc-908e-75018da96f1a | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/PDG/PDG_Ogliastro/MapServer/WMSServer |
-| p_en:71380bff-57c9-478d-8c6f-d42b758bc213 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/Quadro_Unione_10000_EN/MapServer/WMSServer |
-| p_en:734c7ad8-346e-4214-b7f6-c714fa5146c9 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/CONSORZI_DI_BONIFICA_EN/MapServer/WMSServer |
-| p_en:7f8a4c0d-36af-4350-b850-78244bf56f5b | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/DISTRETTI_SOCIO_SANITARI_EN/MapServer/WMSServer |
-| p_en:83c0a407-a7db-4b08-bb02-9adff8cf3a7a | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/IMPIANTI_EOLICI_EN/MapServer/WMSServer |
-| p_en:864e80fc-3c63-4a5e-a65f-7cf37e481b76 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/PDG/PDG_Simeto/MapServer/WMSServer |
-| p_en:8655efec-ac20-4f6c-bf6c-9d22675f2db8 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/PDG/PDG_Pozzillo/MapServer/WMSServer |
-| p_en:8af0ee7c-85f3-4e08-9e84-9148326b3bae | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/PDG/PDG_Sambughetti_Campanito/MapServer/WMSServer |
-| p_en:8f552836-f996-4dd9-89c5-7d625d00a4d7 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/Autolinee_Trasporto_Pubblico_Locale/MapServer/WMSServer |
-| p_en:99ae5eb0-fb8e-404c-847b-75c27e4f8c54 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/Fotovoltaico/MapServer/WMSServer |
-| p_en:9f04517b-f753-4f5b-8289-55e9d4a8e3b9 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/Geositi_EN/MapServer/WMSServer |
-| p_en:a3bde25e-77ba-4a38-96ff-d560f43cc973 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/Impianti_smaltimento_rifiuti/MapServer/WMSServer |
-| p_en:a5267e96-8677-46a2-b578-d37dda34b1e8 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/STAZIONI_RADIO_BASE/MapServer/WMSServer |
-| p_en:a75e9988-ae93-4d23-8d53-798554ff77e9 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/RipetitoriTV_EN/MapServer/WMSServer |
-| p_en:a903c356-7942-4b8c-90bc-62696012c20e | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/INFRASTRUTTURE_ENERGETICHE_ENNA/MapServer/WMSServer |
-| p_en:ae30b3f7-5e5b-4986-86ce-8fde777c3fd9 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/GUARDIE_MEDICHE_EN/MapServer/WMSServer |
-| p_en:b5fcf2b2-e26f-4bac-ae75-3ec64bc0461b | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/Distributori_carburanti/MapServer/WMSServer |
-| p_en:b9814061-0bc2-4b9d-9c8f-63f8515776ea | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/SCUOLE_PROVINCIALI_II_GRADO/MapServer/WMSServer |
-| p_en:bcfcad0d-de4c-4396-9117-95df0e13b1b8 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/PATRIMONIO_ARCHEOLOGICO_STORICO_ARCHITETTONICO_EN/MapServer/WMSServer |
-| p_en:bd4e8668-65e2-4e41-9b18-1229b534ebe2 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/Quadro_Unione_50000_EN/MapServer/WMSServer |
-| p_en:bf6e8906-e866-400b-b729-57e4bbe9c26b | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/PARCHI_E_RISERVE/MapServer/WMSServer |
-| p_en:c289b9cf-59bf-448d-bc41-d756be5c5eb2 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/STRUTTURE_RICETTIVE_EN/MapServer/WMSServer |
-| p_en:c43898c4-e256-43d7-b8b3-b3c1d3a70088 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/Superficie_ha_suolo_consumato_Enna/MapServer/WMSServer |
-| p_en:c69d3a68-24c5-40c6-9110-ce0a7c5753f1 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/AREE_STRUTTURE_PROTEZIONE_CIVILE_EN/MapServer/WMSServer |
-| p_en:c9ff5783-7f95-4083-8768-194e0fe68d66 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/CAVE_EN/MapServer/WMSServer |
-| p_en:cfed7979-d39e-42c0-978d-00c08be89916 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/PDG/PDG_Chiapparo/MapServer/WMSServer |
-| p_en:d44e747b-0b1b-49d7-a215-ec0e3426f11d | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/PDG/PDG_Pergusa/MapServer/WMSServer |
-| p_en:d7dca676-08c0-4453-9a42-909139d3777c | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/CARTA_NATURA_UNITA_PAESAGGIO/MapServer/WMSServer |
-| p_en:dc36c2dc-3fe8-41f6-a404-fe173de01272 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/MINIERE_EN/MapServer/WMSServer |
-| p_en:e0ed60c3-8c03-4fef-bd26-30b8bc2bf661 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/Cittadini_stranieri_residenti_EN_2016/MapServer/WMSServer |
-| p_en:e472bce5-9e18-4651-b7e3-cba3060480a5 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/RETE_STRADALE_PROV/MapServer/WMSServer |
-| p_en:e60dabe7-9f34-4c64-8484-90aa0d0bea0e | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/BOSCHI_ENNA/MapServer/WMSServer |
-| p_en:ebbfa357-42fb-45f7-9f98-73e3c8c7e611 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/Rete_Ospedaliera_EN/MapServer/WMSServer |
-| p_en:ebe9b2b3-bdc1-410b-9ea7-6bf42ba9fd25 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/POPOLAZIONE_2011_EN/MapServer/WMSServer |
-| p_en:efd18559-53c0-41fc-b5fa-e8c5bbc8d99a | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/DISTRETTI_TURISTICI_E_TEMATICI_EN_2013_01_28/MapServer/WMSServer |
-| p_en:f13b12e4-7dbc-4778-bc4f-9f644e9aa644 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/Cinema_Musei_Teatri/MapServer/WMSServer |
-| p_en:f4bb28ce-1952-4ed5-bfc9-f2b3e20cb780 | 404 | http://www.provincia.enna.sitr.it/ArcGIS/services/BACINI_IDROGRAFICI_ENNA/MapServer/WMSServer |
+| p_tp:767abfad-a0e3-4197-8c54-544ee710813e | 404 | http://sit.provincia.trapani.it/ArcGIS/rest/services/Confini_WGS84/MapServer/WMSSever |
+| r_sicili:0231dcda-f7f9-4d5a-bef4-39c66742a54b | 404 | http://www.sitr.regione.sicilia.it/pai/bac071-072.htm |
+| r_sicili:04001a3b-b681-473e-aa6d-216ff5cbd31f | 404 | http://www.sitr.regione.sicilia.it/pai/unita03.htm |
+| r_sicili:044d93df-58ff-4d58-81fa-1c5592113a56 | 404 | http://www.sitr.regione.sicilia.it/pai/bac062.htm |
+| r_sicili:06493b9e-0fbb-45d6-a4af-46315af0abc0 | 404 | http://www.sitr.regione.sicilia.it/pai/bac101.htm |
+| r_sicili:0cf30776-af5c-4e81-a4dc-a5443b266eb8 | 404 | http://www.sitr.regione.sicilia.it/pai/bac019-furiano.htm |
 | r_sicili:0fd6642e-4989-4c39-a4cb-a35ece402003 | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
+| r_sicili:120de705-fef9-4d59-98ec-5469245444ca | 404 | http://www.sitr.regione.sicilia.it/pai/bac084-modica.htm |
 | r_sicili:15990177-b128-4f1e-8054-55c3e830a22f | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
+| r_sicili:16ea3c4e-f07b-4730-8805-55f24b261415 | 404 | http://www.sitr.regione.sicilia.it/pai/bac050-051.htm |
+| r_sicili:19a670f4-8e0f-4ab1-8d32-9e532894287d | 404 | http://www.sitr.regione.sicilia.it/pai/bac022-023.htm |
+| r_sicili:1e734d8f-8042-420f-a716-4fc44e2df7e4 | 404 | http://www.sitr.regione.sicilia.it/pai/bac034-035-036-milicia.htm |
+| r_sicili:21e0c96e-0929-456b-b51b-7ecd1533fae3 | 404 | http://www.sitr.regione.sicilia.it/pai/bac104-ustica.htm |
+| r_sicili:237362f9-81ac-402c-8908-62c25601c310 | 404 | http://www.sitr.regione.sicilia.it/pai/bac105.htm |
+| r_sicili:24fca000-1b95-48f1-8bd3-6573bd79938c | 404 | http://www.sitr.regione.sicilia.it/pai/bac013-014-015-016.htm |
+| r_sicili:27de9ee8-9432-495f-b0f8-12632c89899d | 404 | http://www.sitr.regione.sicilia.it/pai/bac087-asinaro.htm |
+| r_sicili:2b0c5629-a8e7-47a1-ba49-c03feb93e0ec | 404 | http://www.sitr.regione.sicilia.it/pai/bac009-termini.htm |
+| r_sicili:31d46b7f-38ad-42f6-ba5b-abafde7af2ea | 404 | http://www.sitr.regione.sicilia.it/pai/bac096.htm |
+| r_sicili:359be785-4bea-4dd8-b97c-1de98208d364 | 404 | http://www.sitr.regione.sicilia.it/pai/unita02.htm |
+| r_sicili:372ab8d8-23b0-4da5-92dc-7c154625c969 | 404 | http://www.sitr.regione.sicilia.it/pai/bac004-niceto.htm |
+| r_sicili:39ae4ebb-1e40-42fa-b3a4-ee10682c5011 | 404 | http://www.sitr.regione.sicilia.it/pai/bac091-anapo.htm |
+| r_sicili:3b815e80-dd4e-4758-9cd1-9df427308438 | 404 | http://www.sitr.regione.sicilia.it/pai/bac097-098.htm |
+| r_sicili:3c0f8873-a58f-41e1-ab65-50e3d737d895 | 404 | http://www.sitr.regione.sicilia.it/pai/bac082-083-irminio.htm |
+| r_sicili:3ee4a43a-5db3-4a63-abad-374034f5d561 | 404 | http://www.sitr.regione.sicilia.it/pai/bac008.htm |
+| r_sicili:3f5e8adb-0e06-497f-8245-464541205c81 | 404 | http://www.sitr.regione.sicilia.it/pai/bac067.htm |
+| r_sicili:46a9885a-c6ef-4e0b-895e-f7ce73d92518 | 404 | http://www.sitr.regione.sicilia.it/pai/bac017.htm |
+| r_sicili:481f3306-c765-4f25-94ae-367e9ae4a9d3 | 404 | http://www.sitr.regione.sicilia.it/pai/bac055-056.htm |
+| r_sicili:49187627-822a-4723-9321-f63d50c11ae4 | 404 | http://www.sitr.regione.sicilia.it/pai/bac037-038.htm |
+| r_sicili:4bf5509e-7d5a-4f0b-a59c-17bfdcc1d9a7 | 404 | http://www.sitr.regione.sicilia.it/pai/bac033-sanleopa.htm |
+| r_sicili:4c0ab1cb-203a-46c6-8248-7a83accbf790 | 404 | http://www.sitr.regione.sicilia.it/pai/bac047-048.htm |
+| r_sicili:4d0c18f6-7881-4088-8b5e-5d52757150aa | 404 | http://www.sitr.regione.sicilia.it/pai/bac044-045-046.htm |
+| r_sicili:5353a4db-d892-463d-833f-dc9a836a95bb | 404 | http://www.sitr.regione.sicilia.it/pai/bac107.htm |
+| r_sicili:54d2a556-c36a-4921-9f49-1598b1b7da24 | 404 | http://www.sitr.regione.sicilia.it/pai/bac001.htm |
+| r_sicili:55029347-22de-40fa-a89c-2f4935a1b3c3 | 404 | http://www.sitr.regione.sicilia.it/pai/bac060.htm |
+| r_sicili:5a78d25a-2fbc-4a79-9609-1d87529734bd | 404 | http://www.sitr.regione.sicilia.it/pai/unita01.htm |
+| r_sicili:603f8492-32a0-4641-88c9-9d40c96b095a | 404 | http://www.sitr.regione.sicilia.it/pai/bac049-lenzibaiata.htm |
+| r_sicili:662ec9f9-9d94-422f-9e8c-6eccfa46c96f | 404 | http://www.sitr.regione.sicilia.it/pai/bac085-086.htm |
+| r_sicili:69e8f222-0a00-4fe5-a474-e1a15a2f23f0 | 404 | http://www.sitr.regione.sicilia.it/pai/bac094-simeto.htm |
+| r_sicili:6a86f8b3-060d-4365-8499-a426748b7636 | 404 | http://www.sitr.regione.sicilia.it/pai/bac012-timeto.htm |
+| r_sicili:6c37b872-41a1-4cee-bf6d-fc5871e41abc | 404 | http://www.sitr.regione.sicilia.it/pai/bac010.htm |
 | r_sicili:7b2a7bf3-6d4f-46a8-8450-1374a0fe632d | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
+| r_sicili:8a917db0-c1f5-4f6e-9a39-75879ef6dbd5 | 404 | http://www.sitr.regione.sicilia.it/pai/bac092.htm |
+| r_sicili:8ae51a83-959d-42ef-bc29-3309048ffd71 | 404 | http://www.sitr.regione.sicilia.it/pai/bac007-mela.htm |
+| r_sicili:8cd2e9cb-be9c-45bc-9fae-df7ba6c966cd | 404 | http://www.sitr.regione.sicilia.it/pai/bac095.htm |
 | r_sicili:8d37e913-7883-489e-a0b6-37d6e4d96a13 | 404 | http://www.sitr.regione.sicilia.it/component/option,com_docman/task,doc_details/gid,24/Itemid,105/ |
+| r_sicili:91f18d6b-53c4-459b-ac8a-708731abe355 | 404 | http://www.sitr.regione.sicilia.it/pai/home.htm |
+| r_sicili:94f28106-6337-48bd-b4ca-f446dd667d6e | 404 | http://www.sitr.regione.sicilia.it/pai/bac073-074-075-076.htm |
+| r_sicili:96c62a4f-cdbe-4ea5-91c0-89cee224c92f | 404 | http://www.sitr.regione.sicilia.it/pai/bac020-021.htm |
+| r_sicili:97e64a9f-3aa6-41d0-968e-028eff214a9f | 404 | http://www.sitr.regione.sicilia.it/pai/bac006.htm |
+| r_sicili:98c94c22-2e69-4106-abfc-04041ed7fc9c | 404 | http://www.sitr.regione.sicilia.it/pai/bac005.htm |
+| r_sicili:9995b594-1e07-46a8-bc1c-0a3bfc4ced6f | 404 | http://www.sitr.regione.sicilia.it/pai/bac041-042.htm |
+| r_sicili:a380d591-4b75-4341-ba83-3dcdb5a2bcf3 | 404 | http://www.sitr.regione.sicilia.it/pai/bac018-inganno.htm |
+| r_sicili:a51d10f1-9865-41d3-aeaf-55657eef3ff5 | 404 | http://www.sitr.regione.sicilia.it/pai/bac061.htm |
+| r_sicili:a59e413f-d4b0-457c-ab6f-3cd40507479a | 404 | http://www.sitr.regione.sicilia.it/pai/bac078-acatedirillo.htm |
+| r_sicili:a8715e8b-932a-43fd-b528-1200db3e65d6 | 404 | http://www.sitr.regione.sicilia.it/pai/Unita15.htm |
+| r_sicili:ad15611d-676b-4cb4-b842-9834b8c53945 | 404 | http://www.sitr.regione.sicilia.it/pai/bac099-100.htm |
+| r_sicili:b3b0d4e0-f365-4122-8961-ff5d891c1fc7 | 404 | http://www.sitr.regione.sicilia.it/pai/bac088-089-090-cassibile.htm |
+| r_sicili:b413fb50-bb68-4092-8c57-ba9c5ad10911 | 404 | http://www.sitr.regione.sicilia.it/pai/bac058-059.htm |
+| r_sicili:b79b05d2-9aba-4054-8270-f7d3a673c94c | 404 | http://www.sitr.regione.sicilia.it/pai/bac057-belice.htm |
+| r_sicili:bace68f9-a027-4a7b-879b-7e6ce6afb268 | 404 | http://www.sitr.regione.sicilia.it/pai/unita14.htm |
+| r_sicili:be67f0f6-9c75-4a33-80e6-7d21df24f17a | 404 | http://www.sitr.regione.sicilia.it/pai/bac079-080-081-ippari.htm |
+| r_sicili:c03e4ab7-f99c-453d-ad09-66ea95eca157 | 404 | http://www.sitr.regione.sicilia.it/pai/bac054.htm |
+| r_sicili:c0dcac60-ea46-43e6-b1d1-76f687f9d9aa | 404 | http://www.sitr.regione.sicilia.it/pai/bac077.htm |
+| r_sicili:c7b21297-54d5-4d75-b350-8e8c0e4653c7 | 404 | http://www.sitr.regione.sicilia.it/pai/bac011-elicona.htm |
+| r_sicili:cdf10905-e955-48da-9328-2742bfcffc9b | 404 | http://www.sitr.regione.sicilia.it/pai/bac106.htm |
+| r_sicili:ce2e389b-0c4d-473f-b666-3f516aeac74d | 404 | http://www.sitr.regione.sicilia.it/pai/bac102-fiumedinisi.htm |
+| r_sicili:cf664512-f871-475a-b79c-ade42ceb85a8 | 404 | http://www.sitr.regione.sicilia.it/pai/bac093-sanleoctsr.htm |
+| r_sicili:d2b96cb3-6553-4609-9131-850ff04c9d3e | 404 | http://www.sitr.regione.sicilia.it/pai/bac002-003.htm |
+| r_sicili:d8683fef-e4db-4bc1-a53a-a4a4dca326a1 | 404 | http://www.sitr.regione.sicilia.it/pai/bac069-070-fpalma.htm |
+| r_sicili:d91d21b5-6f52-4e35-8d64-9826c55c98f1 | 404 | http://www.sitr.regione.sicilia.it/pai/unita05.htm |
+| r_sicili:d9550fc7-e725-4dbd-a134-fb92290cf92c | 404 | http://www.sitr.regione.sicilia.it/pai/bac103.htm |
+| r_sicili:e066d22e-77cb-4a91-bfcb-12f9af6832ab | 404 | http://www.sitr.regione.sicilia.it/pai/unita04.htm |
+| r_sicili:e09fde97-4457-4d2a-bf4b-360ff6ed6558 | 404 | http://www.sitr.regione.sicilia.it/pai/bac043-jato.htm |
+| r_sicili:e4ece106-d1ac-4616-b0e7-baa10d1f5e5a | 404 | http://www.sitr.regione.sicilia.it/pai/unita16-17.htm |
 | r_sicili:e61df0ed-fd33-4537-8579-9857b4094afa | 404 | http://www.regione.sicilia.it/beniculturali/dirbenicult/bca/ptpr/pianopaesistico.html |
+| r_sicili:e784b3b9-6b84-4796-aaa8-0acc4ad2202b | 404 | http://www.sitr.regione.sicilia.it/pai/bac052.htm |
+| r_sicili:e8467ae1-177a-4fed-abf6-4a77ea2325b9 | 404 | http://www.sitr.regione.sicilia.it/pai/bac064-065-066.htm |
+| r_sicili:ecfbf458-7f02-4503-9451-59609c643925 | 404 | http://www.sitr.regione.sicilia.it/pai/bac063-platani.htm |
+| r_sicili:ed0d9f3e-6efe-41c0-a9ee-ad890f7a7185 | 404 | http://www.sitr.regione.sicilia.it/pai/bac068-naro.htm |
+| r_sicili:ed80f176-2a1d-4250-aac8-deda55449270 | 404 | http://www.sitr.regione.sicilia.it/pai/bac030-imerasett.htm |
+| r_sicili:edfe95d6-6a8d-4e78-8bff-e62bc1defc3b | 404 | http://www.sitr.regione.sicilia.it/pai/bac031-032.htm |
+| r_sicili:f061f04e-5412-4cb9-b037-2e0c39dd6bab | 404 | http://www.sitr.regione.sicilia.it/pai/unita06.htm |
+| r_sicili:f1cfc687-b83f-446b-99c1-9e72f81324cd | 404 | http://www.sitr.regione.sicilia.it/pai/bac053.htm |
+| r_sicili:f3b66c56-0a24-4918-9f67-52f384fe145c | 404 | http://www.sitr.regione.sicilia.it/pai/bac039-040.htm |
+| r_sicili:f6f936a9-c450-464d-853f-2943de54b2b6 | 404 | http://www.sitr.regione.sicilia.it/pai/bac024-025.htm |
 
 # Risorse passate da 2** a 5**
 
