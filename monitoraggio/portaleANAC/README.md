@@ -1,1 +1,2 @@
 - [ ] verificare variazioni dataset partecipanti
+- [ ] capire se disabilitare
