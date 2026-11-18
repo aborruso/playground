@@ -1,0 +1,33 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+const read=(name)=>readFileSync(new URL(name,import.meta.url),'utf8');
+test('minimappa Italia con marker, legenda assente e scala leggibile a destra',()=>{
+ const html=read('./index.html'),js=read('./main.js'),css=read('./style.css');
+ assert.ok(!html.includes('class="legend"'));
+ assert.match(html,/id="minimap"/);
+ assert.match(js,/createItalyMinimap/);
+ const minimap=read('./minimap.js');
+ assert.match(minimap,/interactions:\[\]/);
+ assert.match(minimap,/fit\(ITALY_EXTENT/);
+ assert.match(minimap,/marker.setCoordinates/);
+ assert.match(minimap,/map.on\('singleclick'/);
+ assert.match(minimap,/mainView.setCenter\(transform\(coordinate,'EPSG:3857'/);
+ assert.match(css,/\.ol-scale-line\{left:auto;right:28px;/);
+ assert.match(css,/header\{[^}]*background:#172b27;color:#fff9ed/);
+ assert.match(css,/#map \.ol-scale-line-inner\{color:#fff9ed;border-color:#fff9ed/);
+ assert.match(css,/grid-template-columns:1fr 1fr/);
+ assert.match(js,/map.on\('dblclick'/);
+ assert.match(js,/view.setCenter\(event.coordinate\)/);
+ assert.match(html,/id="crosshair"/);
+ assert.match(html,/id="center-elevation"/);
+ assert.match(css,/.split-label\{position:absolute;top:24px/);
+ assert.match(html,/<span id="base-label">AGEA<\/span><span>RILIEVO<\/span>/);
+});
+test('indicatore di caricamento sul lato del rilievo',()=>{
+ const html=read('./index.html'),js=read('./main.js'),css=read('./style.css');
+ assert.match(html,/id="dtm-loading" role="status"/);
+ assert.match(css,/#dtm-loading\{position:absolute;z-index:1;left:calc\(50% \+ 34px\)/);
+ assert.match(js,/source.on\('tileloadstart'/);
+ assert.match(js,/map.on\('loadend'/);
+});

@@ -1,0 +1,19 @@
+{
+  "name": "zenodo-dtm-viewer",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@fontsource/dm-mono": "^5.2.7",
+    "@fontsource/instrument-serif": "^5.2.8",
+    "ol": "10.6.1",
+    "proj4": "2.19.10"
+  },
+  "devDependencies": {
+    "vite": "^7.0.0"
+  }
+}
