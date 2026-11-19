@@ -9,9 +9,18 @@ export function readPosition(hash) {
 // View modes: tendina (default, no parameter), affiancate (vista=doppia, the
 // name used by older links), fusione (vista=fusione).
 const MODE_PARAM={affiancate:'doppia',fusione:'fusione'};
-export function positionHash([lon,lat],base,mode='tendina') {
+// Zoom as metres per pixel (res=80); omitted at the full 5 m, so older links stay valid.
+export function positionHash([lon,lat],base,mode='tendina',resolution=5) {
   const vista=MODE_PARAM[mode];
-  return '#lat='+lat.toFixed(5)+'&lon='+lon.toFixed(5)+(base?'&base='+base:'')+(vista?'&vista='+vista:'');
+  return '#lat='+lat.toFixed(5)+'&lon='+lon.toFixed(5)+(base?'&base='+base:'')+(vista?'&vista='+vista:'')+
+    (resolution!==5?'&res='+resolution:'');
+}
+// One of the file's levels: any other positive number goes to the nearest one
+// (in powers of two); missing or invalid: null, i.e. the full 5 m.
+export function readResolution(hash,levels) {
+  const value=Number(new URLSearchParams(hash.replace(/^#/,'')).get('res'));
+  if(!Number.isFinite(value) || value<=0) return null;
+  return levels.reduce((best,level)=>Math.abs(Math.log2(level/value))<Math.abs(Math.log2(best/value))?level:best);
 }
 export function readMode(hash) {
   const vista=new URLSearchParams(hash.replace(/^#/,'')).get('vista');

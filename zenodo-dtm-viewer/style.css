@@ -61,9 +61,13 @@ input[type=range]{width:100%;accent-color:var(--gold)}
 /* Bottom bar: zoom note, scale, credits */
 footer{right:24px;bottom:24px;display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:18px;max-width:calc(100% - 276px);padding:10px 16px;font:12px var(--mono)}
 #zoom-note{color:var(--gold)}.credits{color:var(--muted)}
-#scale .ol-scale-line,#left-scale .ol-scale-line{position:static;padding:0;background:none;border-radius:0}
+#scale .ol-scale-line{position:static;padding:0;background:none;border-radius:0}
 .ol-scale-line-inner{margin:0;border:1.5px solid var(--text);border-top:0;color:var(--text);font:12px var(--mono);text-shadow:none}
 .ol-attribution{bottom:0!important;right:0!important;font-size:10px}
+
+/* Zoom +/- (bottom right, above the bar) */
+#map .ol-zoom{top:auto;left:auto;right:24px;bottom:84px;display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);border-radius:0;box-shadow:0 8px 32px rgba(0,0,0,.3);padding:0}
+#map .ol-zoom button{width:40px;height:40px;margin:0;border-radius:0;background:none;color:var(--gold);font:20px var(--mono);cursor:pointer}#map .ol-zoom button:hover,#map .ol-zoom button:focus{background:var(--hover);outline:none}#map .ol-zoom button:focus-visible{outline:2px solid var(--gold);outline-offset:-2px}#map .ol-zoom-in{border-bottom:1px solid var(--line-soft)}
 
 /* Minimap */
 #minimap-panel{position:absolute;z-index:3;left:24px;bottom:24px;padding:8px}#minimap-panel p{margin:2px 2px 8px;font:10px var(--mono);letter-spacing:.16em;color:var(--muted)}
@@ -87,10 +91,6 @@ body.fusione .split-line{display:none}body.fusione .dtm-relief{mix-blend-mode:mu
 /* "Affiancate": left map, second crosshair, zoom box */
 #left-map{position:absolute;z-index:1;top:0;bottom:0;left:0;width:50%;background:#1b2a24}#left-map[hidden],#left-probe{display:none}
 #left-probe{left:25%}body.dual #left-probe{display:block}body.dual #center-probe{left:75%}body.dual #dtm-loading{left:75%;top:calc(50% + 40px);transform:translateX(-50%);max-width:calc(50% - 16px)}
-#left-zoom{position:absolute;z-index:2;top:50%;right:calc(50% + 16px);transform:translateY(-50%);width:132px;display:flex;flex-direction:column;background:var(--panel);border:1px solid rgba(233,201,128,.3)}#left-zoom[hidden]{display:none}
-#left-zoom button{height:44px;border:0;background:none;color:var(--gold);font-size:20px;cursor:pointer}#left-zoom button:hover{background:var(--hover)}#left-zoom-in{border-bottom:1px solid var(--line-soft)!important}#left-zoom-out{border-top:1px solid var(--line-soft)!important}
-#left-zoom p{margin:0;padding:10px 12px;display:flex;flex-direction:column;gap:6px;font:12px var(--mono)}#left-zoom-factor{color:var(--gold)}
-#align-zoom{position:absolute;z-index:2;right:calc(50% + 16px);top:calc(50% + 100px);width:132px;min-height:40px;padding:8px 12px;border:1px solid var(--gold);background:var(--panel);color:var(--gold);box-shadow:0 3px 12px rgba(0,0,0,.4);cursor:pointer;font:12px var(--mono)}#align-zoom:hover{background:var(--hover)}#align-zoom[hidden]{display:none}
 
 /* Dialogs */
 dialog{position:fixed;inset:0;margin:auto;max-height:calc(100dvh - 32px);overflow-y:auto;padding:30px 34px;background:var(--panel);color:var(--text);border:1px solid rgba(233,201,128,.35);box-shadow:0 24px 100px rgba(0,0,0,.55)}dialog::backdrop{background:rgba(10,18,14,.72);backdrop-filter:blur(3px)}
@@ -137,11 +137,9 @@ dialog form{position:absolute;top:12px;right:12px}.info-close{border:0;backgroun
   #fusion-label{top:calc(env(safe-area-inset-top,0px) + 76px);font-size:10px;letter-spacing:.1em}
   /* One strip at the bottom: scale, DTM and base credits (map attributions hidden). */
   footer{position:fixed;z-index:3;left:0;right:0;bottom:0;max-width:none;justify-content:space-between;flex-wrap:nowrap;gap:10px;padding:6px 10px calc(env(safe-area-inset-bottom,0px) + 6px);border:0;border-top:1px solid var(--line);box-shadow:none;font:10px var(--mono)}
-  #zoom-note,.credit-long,.ol-attribution{display:none}.credit-short,#base-credit,#base-credit-after{display:inline}.credits{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  #zoom-note,.credit-long,.ol-attribution{display:none}
+  #map .ol-zoom{right:12px;bottom:calc(env(safe-area-inset-bottom,0px) + 44px)}#map .ol-zoom button{width:48px;height:48px}.credit-short,#base-credit,#base-credit-after{display:inline}.credits{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   #scale .ol-scale-line-inner{font-size:10px}
-  /* Phones pinch to zoom the left side: no +/- box, "Allinea zoom" stays. */
-  #left-zoom{display:none}
-  #align-zoom{top:auto;width:auto;right:calc(50% + 8px);bottom:calc(env(safe-area-inset-bottom,0px) + 44px);min-height:44px;font-size:11px}
   #info-dialog{inset:0;margin:0;width:100vw;max-width:none;height:100dvh;max-height:none;border:0;padding:env(safe-area-inset-top,0px) 24px calc(env(safe-area-inset-bottom,0px) + 24px)}
   #info-dialog form{position:sticky;top:0;right:auto;display:flex;justify-content:flex-end;margin:0 -12px 8px;padding:4px 0;background:var(--panel);z-index:1}
   .info-close{min-width:48px;min-height:48px}#info-title{font-size:34px}

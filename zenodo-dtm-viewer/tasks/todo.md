@@ -148,6 +148,16 @@ Ispezione con gdalinfo via HTTP Range: `HRDM5m_20261030_cog.tif`, 34.305.072.863
 - [x] Misure: byte degli indici e di una vista con il nuovo file, cartolina → verify: nel browser. Fatto: Stromboli, indici e prima vista 4,6 MiB in 13 richieste (prima 10,6 MiB); cartolina 1080×1080 col link al record 24009736. Indici da soli non separati.
 Fase 2 (zoom libero) solo dopo, su richiesta.
 
+### Zoom libero sui livelli del COG - fase 2, branch `zoom-libero`, 2026-11-19
+- [x] Vista vincolata ai livelli del file (`LEVELS`, 5-2560 m), rotella, pizzico, tasti tastiera e pulsanti + e − → verify: nel browser, oltre 5 m e oltre 2560 m la vista torna al livello estremo; test `LEVELS`. Fatto.
+- [x] Rilievo: pendenze su `['resolution']` invece dei 5 m fissi → verify: test (stessa differenza di quota più chiara a 80 m che a 5 m); a 80 m Sicilia orientale leggibile. Da 320 m in su il rilievo è piatto: le piramidi sono medie. Fatto.
+- [x] Ritaglio di base e rilievo ricalcolato anche al cambio di zoom (prima restavano in un quadratino) → verify: screenshot a 80 e 1280 m. Fatto.
+- [x] Affiancate: stessa scala a terra, sincronizzata nei due versi, scatto sul livello più vicino a fine gesto; tolti riquadro di zoom, «Allinea zoom», scala sinistra. Bug trovato e corretto: i `moveend` di inseguimento della sinistra interrompevano l'animazione della destra → verify: −×3 5→10→20→40, +×2 40→20→10, sinistra sempre uguale; zoom e pan fatti a sinistra arrivano alla destra. Fatto.
+- [x] Testi: popup (sezione piramidi, Da provare, nota sulle viste), aiuto (+ e −), nota in basso, README → verify: 64 test ok. Fatto.
+- Misure sull'Etna: 20 m +7,1 MiB, 80 m +4,6, 320 m +1,2, 1280 m +0,6, 2560 m +0,1.
+- [x] Zoom nel link: `&res=` in metri per pixel, omesso a 5 m; scritto a fine animazione (`moveend`); valori fuori livello al livello più vicino → verify: test `readResolution`; nel browser −− dà `res=20`, riaperto a 20 m con le due metà uguali, `res=300` → 320, senza `res` → 5. Fatto.
+- Aperte: esagerazione automatica sui livelli ridotti? Mare grigio chiaro ben visibile da lontano.
+
 ### Esito 2026-11-19
 Verificato su Xvfb con agent-browser e SwiftShader, a 1400×900, 390×844 e 320×640.
 - Fase A: riquadro del titolo con ricerca, luoghi e recenti (Matera → «Sassi di Matera, Matera», quota 392,1 m), Nominatim («Monte Pellegrino» → 3 risultati con dettaglio), `/` porta il fuoco nel campo. Scorciatoie: `/`, `1` `2` `3`, Maiusc+← →, `R`, `C`, `?`, `Esc`. `P` non c'è, il profilo è in fase C. Le frecce senza Maiusc spostano già la mappa (KeyboardPan), quindi il divisore usa Maiusc+← → o le frecce sulla maniglia. Mobile: sette pulsanti, nessuno scorrimento orizzontale a 390 e 320 px.

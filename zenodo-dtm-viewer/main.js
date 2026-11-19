@@ -13,15 +13,19 @@ import OSM from 'ol/source/OSM.js';
 import Attribution from 'ol/control/Attribution.js';
 import DragPan from 'ol/interaction/DragPan.js';
 import KeyboardPan from 'ol/interaction/KeyboardPan.js';
+import KeyboardZoom from 'ol/interaction/KeyboardZoom.js';
+import MouseWheelZoom from 'ol/interaction/MouseWheelZoom.js';
+import PinchZoom from 'ol/interaction/PinchZoom.js';
 import ScaleLine from 'ol/control/ScaleLine.js';
+import Zoom from 'ol/control/Zoom.js';
 import {createItalyMinimap} from './minimap.js';
 import proj4 from 'proj4';
 import {register} from 'ol/proj/proj4.js';
 import {transform} from 'ol/proj.js';
-import {DTM_URL,viewOptions,rangeFetch,rightHalfExtent,leftHalfExtent,clampSplit,createRateGate} from './config.js';
+import {DTM_URL,LEVELS,viewOptions,rangeFetch,rightHalfExtent,leftHalfExtent,clampSplit,createRateGate} from './config.js';
 import {getPosition} from './location.js';
 import {RELIEF_DEFAULTS,reliefStyle,reliefVariables} from './relief.js';
-import {readPosition,positionHash,readBase,readMode,googleMapsUrl} from './position-url.js';
+import {readPosition,positionHash,readBase,readMode,readResolution,googleMapsUrl} from './position-url.js';
 import {createDualView} from './dualview.js';
 import {createAgeaLayer} from './basemaps.js';
 import {showIntroOnce} from './intro.js';
@@ -74,12 +78,15 @@ if(codePoint) history.replaceState(null,'','/'+positionHash(codePoint));
 const initialPosition=readPosition(window.location.hash) || [14.99,37.75];
 const initialBase=readBase(window.location.hash);
 const initialMode=readMode(window.location.hash);
-const view=new View(viewOptions(transform(initialPosition,'EPSG:4326','EPSG:6875')));
+const view=new View(viewOptions(transform(initialPosition,'EPSG:4326','EPSG:6875'),true));
+const initialResolution=readResolution(window.location.hash,LEVELS);
+if(initialResolution) view.setResolution(initialResolution);
 // Zoom-14 tiles upscaled to 5 m/px: larger, legible labels (z15 tiles get shrunk).
 const osm=new TileLayer({source:new OSM({maxZoom:14}),visible:false});
 const agea=createAgeaLayer();
 const map=new Map({target:'map',layers:[osm,agea,layer],view,pixelRatio:1,
-  controls:[new ScaleLine({target:el('scale')}),new Attribution({collapsible:false})],interactions:[new DragPan(),new KeyboardPan()],
+  // Classic +/- buttons; the view only stops on the COG levels (5-2560 m).
+  controls:[new Zoom({zoomInTipLabel:'Avvicina',zoomOutTipLabel:'Allontana'}),new ScaleLine({target:el('scale')}),new Attribution({collapsible:false})],interactions:[new DragPan(),new KeyboardPan(),new KeyboardZoom(),new MouseWheelZoom(),new PinchZoom()],
   maxTilesLoading:4});
 const minimap=createItalyMinimap('minimap',view);
 map.on('dblclick',(event)=>{
@@ -106,7 +113,7 @@ function updateSplit() {
   agea.setExtent(fused?undefined:leftHalfExtent(extent,ratio));
   document.body.style.setProperty('--split',(ratio*100).toFixed(2)+'%');
 }
-view.on('change:center',updateSplit);
+view.on(['change:center','change:resolution'],updateSplit);
 map.on('change:size',updateSplit);
 updateSplit();
 // Pixel shown by the relief: the centre of its part of the screen (postcard centre).
@@ -170,17 +177,20 @@ view.on('change:center',()=>{if(!picking) lastPlace=null; updatePlace();});
 updatePlace();
 function syncPosition() {
   const [lon,lat]=transform(view.getCenter(),'EPSG:6875','EPSG:4326');
-  history.replaceState(null,'',window.location.pathname+window.location.search+positionHash([lon,lat],baseName,mode));
+  history.replaceState(null,'',window.location.pathname+window.location.search+positionHash([lon,lat],baseName,mode,view.getResolution()));
 }
 view.on('change:center',syncPosition);
+// Zoom: written at the end of the animation, when the view sits on a file level.
+map.on('moveend',syncPosition);
 syncPosition();
 // Read every parameter first: moving the view rewrites the hash.
 window.addEventListener('hashchange',()=>{
   const hash=window.location.hash;
-  const coordinates=readPosition(hash), base=readBase(hash), next=readMode(hash);
+  const coordinates=readPosition(hash), base=readBase(hash), next=readMode(hash), resolution=readResolution(hash,LEVELS)||5;
   if(next!==mode) setMode(next);
   if(base) setBasemap(base);
   if(coordinates) view.setCenter(transform(coordinates,'EPSG:4326','EPSG:6875'));
+  if(resolution!==view.getResolution()) view.setResolution(resolution);
 });
 el('locate').addEventListener('click',async()=>{
   const button=el('locate');
@@ -194,7 +204,7 @@ el('locate').addEventListener('click',async()=>{
     el('location-status').textContent=error.message;
   } finally {button.disabled=false;}
 });
-const dualView=createDualView({target:'left-map',mainView:view,mainProjection:'EPSG:6875',scaleTarget:el('left-scale')});
+const dualView=createDualView({target:'left-map',mainView:view,mainProjection:'EPSG:6875'});
 function applyBaseVisibility() {
   const dual=mode==='affiancate';
   osm.setVisible(!dual && baseName==='osm');
@@ -203,7 +213,12 @@ function applyBaseVisibility() {
   dualView.agea.setVisible(baseName==='agea');
 }
 const MODES=['tendina','affiancate','fusione'];
-const MODE_NOTE={tendina:'Zoom fisso · 5 m/px',affiancate:'Sinistra: zoom libero · destra: 5 m/px',fusione:'Zoom fisso · 5 m/px'};
+// Bottom note: resolution of the level shown (5 m is the full resolution).
+function updateZoomNote() {
+  const res=Math.round(view.getResolution()).toLocaleString('it-IT')+' m/px';
+  el('zoom-note').textContent=(mode==='affiancate'?'Stessa scala: ':'Rilievo: ')+res+(view.getResolution()===5?' (piena)':'');
+}
+view.on('change:resolution',updateZoomNote);
 function setMode(next) {
   if(!MODES.includes(next)) return;
   const wasDual=mode==='affiancate';
@@ -226,8 +241,7 @@ function setMode(next) {
   });
   el('fusion-opacity-label').hidden=mode!=='fusione';
   el('mode-cycle').setAttribute('aria-label','Vista: '+mode+'. Tocca per cambiare');
-  el('zoom-note').textContent=MODE_NOTE[mode];
-  updateLeftZoom();
+  updateZoomNote();
   updateSplit();
   syncPosition();
 }
@@ -246,18 +260,6 @@ el('fusion-opacity').addEventListener('input',(event)=>{
   el('fusion-value').textContent=event.target.value;
   if(mode==='fusione') layer.setOpacity(fusionOpacity);
 });
-// "Affiancate": +/- and magnification of the left side; "Allinea zoom" only
-// when the left zoom differs from the 5 m of the relief.
-function updateLeftZoom() {
-  const dual=mode==='affiancate';
-  el('left-zoom').hidden=!dual;
-  el('align-zoom').hidden=!dual || dualView.isAligned();
-  if(dual) el('left-zoom-factor').textContent='zoom '+decimal(dualView.zoomFactor(),dualView.zoomFactor()<1?2:1)+'×';
-}
-dualView.map.on('moveend',updateLeftZoom);
-el('align-zoom').addEventListener('click',()=>dualView.alignZoom());
-el('left-zoom-in').addEventListener('click',()=>dualView.zoomBy(1));
-el('left-zoom-out').addEventListener('click',()=>dualView.zoomBy(-1));
 // Divider of the "tendina": drag the handle, or arrow keys on it.
 function setSplit(value) {
   split=clampSplit(value);

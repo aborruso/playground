@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {readPosition,positionHash,readBase,readMode,googleMapsUrl} from './position-url.js';
+import {readPosition,positionHash,readBase,readMode,readResolution,googleMapsUrl} from './position-url.js';
 
 test('senza coordinate condivise il punto iniziale è Etna',()=>{
  const main=readFileSync(new URL('./main.js',import.meta.url),'utf8');
@@ -42,4 +42,14 @@ test('Google Maps: pin sul punto, vista satellite, latitudine prima',()=>{
 test('link condiviso in vista affiancata: il punto torna sotto il mirino dopo il cambio di vista',()=>{
  const main=readFileSync(new URL('./main.js',import.meta.url),'utf8');
  assert.match(main,/setMode\(initialMode\);[^]*?\nview.setCenter\(transform\(initialPosition,'EPSG:4326','EPSG:6875'\)\);/);
+});
+test('lo zoom viaggia nel link come metri per pixel, omesso a 5 m',()=>{
+ const levels=[2560,1280,640,320,160,80,40,20,10,5];
+ assert.equal(positionHash([13.35,38.12],'agea','tendina',80),'#lat=38.12000&lon=13.35000&base=agea&res=80');
+ assert.equal(positionHash([13.35,38.12],'agea','affiancate',5),'#lat=38.12000&lon=13.35000&base=agea&vista=doppia');
+ assert.equal(readResolution('#lat=38.12&lon=13.35&res=80',levels),80);
+ assert.equal(readResolution('#lat=38.12&lon=13.35&res=100',levels),80);
+ assert.equal(readResolution('#lat=38.12&lon=13.35&res=99999',levels),2560);
+ assert.equal(readResolution('#lat=38.12&lon=13.35&res=1',levels),5);
+ for(const hash of ['#lat=38.12&lon=13.35','#res=abc','#res=-4','#res=0']) assert.equal(readResolution(hash,levels),null);
 });

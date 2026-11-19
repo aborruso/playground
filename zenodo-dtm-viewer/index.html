@@ -26,10 +26,8 @@
 <meta name="twitter:image:alt" content="Il terreno, da vicino: rilievo ombreggiato reale di Palermo, con costa e versanti. Ortofoto, rilievo e quote su una griglia di 5 metri.">
 </head>
 <body>
-<main id="map" tabindex="0" aria-label="Modello del terreno. Trascina per spostarti; zoom bloccato."></main>
+<main id="map" tabindex="0" aria-label="Modello del terreno. Trascina per spostarti; rotella, + e − per lo zoom."></main>
 <div id="left-map" hidden></div>
-<div id="left-zoom" role="group" aria-label="Zoom del lato sinistro" hidden><button id="left-zoom-in" type="button" aria-label="Ingrandisci il lato sinistro">+</button><p><span class="kicker">SINISTRA</span><span id="left-zoom-factor">zoom 1,0×</span><span id="left-scale"></span></p><button id="left-zoom-out" type="button" aria-label="Riduci il lato sinistro">−</button></div>
-<button id="align-zoom" type="button" hidden title="Riporta il lato sinistro alla scala del rilievo (5 m per pixel)">Allinea zoom</button>
 <div id="left-probe" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32" aria-hidden="true"><path d="M16 2v10m0 8v10M2 16h10m8 0h10" stroke="#0e1713" stroke-width="4"/><path d="M16 2v10m0 8v10M2 16h10m8 0h10" stroke="#f2ede1" stroke-width="2"/><circle cx="16" cy="16" r="4" fill="#e9c980" stroke="#0e1713" stroke-width="1.5"/></svg></div>
 <section id="minimap-panel" aria-label="Minimappa Italia: clicca per spostare la vista"><p>ITALIA / POSIZIONE</p><div id="minimap" aria-hidden="true"></div></section>
 <div class="split-line" aria-hidden="true"><div class="split-label"><span id="base-label">AGEA</span><span>RILIEVO</span></div></div>
@@ -46,7 +44,7 @@
 <aside aria-label="Strumenti">
 <fieldset id="mode-choice"><legend>VISTA</legend>
 <button type="button" data-mode="tendina" aria-pressed="true">Tendina<small>sovrapposte, divisore mobile</small></button>
-<button type="button" data-mode="affiancate" aria-pressed="false">Affiancate<small>centro sincronizzato</small></button>
+<button type="button" data-mode="affiancate" aria-pressed="false">Affiancate<small>stesso punto, stessa scala</small></button>
 <button type="button" data-mode="fusione" aria-pressed="false">Fusione<small>in trasparenza</small></button>
 <label id="fusion-opacity-label" hidden><span>Opacità del rilievo</span><input id="fusion-opacity" type="range" min="10" max="100" step="5" value="60"></label>
 </fieldset>
@@ -88,13 +86,14 @@
 <div><dt>Cartolina</dt><dd><kbd>C</kbd></dd></div>
 <div><dt>Apri in Google Maps</dt><dd><kbd>G</kbd></dd></div>
 <div><dt>Sposta la mappa</dt><dd><kbd>← ↑ → ↓</kbd></dd></div>
+<div><dt>Avvicina, allontana</dt><dd><kbd>+</kbd> <kbd>−</kbd></dd></div>
 <div><dt>Chiudi</dt><dd><kbd>Esc</kbd></dd></div>
 </dl>
 <p class="panel-note">Doppio clic sulla mappa: centra il punto. Clic sulla minimappa: salta lì.</p>
 <button id="help-info" type="button" class="link-button">Dietro la mappa: come funziona →</button>
 </section>
 </aside>
-<footer><span id="zoom-note">Zoom fisso · 5 m/px</span><span id="scale"></span><span class="credits"><span class="credit-long">DTM: Panza et al. · IRPI-CNR · </span><span class="credit-short">DTM</span><span id="base-credit"> · © AGEA · </span><a href="https://zenodo.org/records/24009736" target="_blank" rel="noreferrer">CC BY 4.0 ↗</a><span id="base-credit-after"></span></span></footer>
+<footer><span id="zoom-note">Rilievo: 5 m/px (piena)</span><span id="scale"></span><span class="credits"><span class="credit-long">DTM: Panza et al. · IRPI-CNR · </span><span class="credit-short">DTM</span><span id="base-credit"> · © AGEA · </span><a href="https://zenodo.org/records/24009736" target="_blank" rel="noreferrer">CC BY 4.0 ↗</a><span id="base-credit-after"></span></span></footer>
 <dialog id="info-dialog" aria-labelledby="info-title">
 <form method="dialog"><button class="info-close" aria-label="Chiudi informazioni" autofocus>×</button></form>
 <p class="info-kicker">DIETRO LA MAPPA</p>
@@ -103,13 +102,13 @@
 <p>È HR-DTM-5m, il modello digitale del terreno di Panza e colleghi (IRPI-CNR). Unisce rilievi laser LiDAR e TINITALY, il modello nazionale a 10 m: la griglia è a 5 m, ma il dettaglio delle fonti varia da zona a zona.</p></section>
 <section class="info-section"><h3>Un file enorme, letto a pezzi</h3>
 <p>Puntiamo direttamente al file da <strong>34,3 GB su Zenodo</strong>. Le richieste <strong>HTTP Range</strong> leggono prima gli indici, poi solo i blocchi necessari alla vista, senza scaricare tutta l’Italia. Su schermo grande, sotto il titolo, vedi quanti MiB hai letto finora.</p></section>
-<section class="info-section"><h3>Perché non puoi cambiare zoom?</h3>
-<p>Il file contiene anche <strong>piramidi</strong>: versioni più leggere per vedere aree estese. Questa mappa per ora resta a <strong>5 m per pixel</strong>, la risoluzione piena: è una <strong>scelta di questa mappa</strong>, non un limite di HTTP. Puoi spostarti liberamente.</p></section>
+<section class="info-section"><h3>Dall’Italia intera al singolo edificio</h3>
+<p>Il file contiene anche <strong>piramidi</strong>: copie più leggere dello stesso terreno, a 10, 20, 40 m per pixel e così via fino a 2.560 m. Allontanandoti, la mappa legge quelle, non i blocchi a 5 m: una vista di tutta l’Italia pesa poche centinaia di KB. Lo zoom si ferma ai livelli del file, da <strong>5 m per pixel</strong>, la risoluzione piena, a 2.560 m.</p></section>
 <section class="info-section"><h3>Perché si può fare</h3>
 <p>Gli autori hanno pubblicato il file come <strong>dato aperto</strong>, con licenza CC BY 4.0: chiunque può usarlo e costruirci sopra, citando la fonte. Questa pagina non ha un server di dati: legge il file là dove è stato pubblicato. È un piccolo esempio del valore di un dato aperto, documentato e raggiungibile in rete.</p></section>
 <section class="info-section"><h3>Da provare</h3>
-<p>Cerca un luogo che conosci, trascina la mappa, fai doppio clic per centrare un punto e leggine la quota nel mirino. L’indirizzo della pagina conserva posizione e base: copialo per condividere quel punto.</p></section>
-<p class="info-note">La mappa confronta due strati: le ortofoto AGEA dei voli 2022, 2023 e 2024 sovrapposte, oppure OpenStreetMap, e il rilievo calcolato nel browser dalle quote. Con «Tendina» i due strati sono uno accanto all’altro e il divisore si trascina: spostando la mappa, un luogo passa da un lato all’altro. Con «Affiancate» le due metà mostrano lo stesso punto, ciascuna con il suo mirino, e il lato sinistro si può ingrandire. Con «Fusione» il rilievo si sovrappone all’ortofoto in trasparenza, e legge circa il doppio dei blocchi. Dal pannello Rilievo si cambiano direzione e altezza del sole, esagerazione verticale e tipo di resa, senza nuove letture del file.</p>
+<p>Cerca un luogo che conosci, allontanati con la rotella o con − per vedere dove sei, trascina la mappa, fai doppio clic per centrare un punto e leggine la quota nel mirino. L’indirizzo della pagina conserva posizione e base: copialo per condividere quel punto.</p></section>
+<p class="info-note">La mappa confronta due strati: le ortofoto AGEA dei voli 2022, 2023 e 2024 sovrapposte, oppure OpenStreetMap, e il rilievo calcolato nel browser dalle quote. Con «Tendina» i due strati sono uno accanto all’altro e il divisore si trascina: spostando la mappa, un luogo passa da un lato all’altro. Con «Affiancate» le due metà mostrano lo stesso punto alla stessa scala, ciascuna con il suo mirino: zoomando o spostandoti da una parte, l’altra segue. Con «Fusione» il rilievo si sovrappone all’ortofoto in trasparenza, e legge circa il doppio dei blocchi. Dal pannello Rilievo si cambiano direzione e altezza del sole, esagerazione verticale e tipo di resa, senza nuove letture del file.</p>
 <p class="info-note">Ortofoto: © <a href="https://geoportale.agea.gov.it/" target="_blank" rel="noreferrer">AGEA, Agenzia per le Erogazioni in Agricoltura</a>. Ortofoto dei voli 2022, 2023 e 2024 · <a href="https://creativecommons.org/licenses/by/4.0/deed.it" target="_blank" rel="noreferrer">CC BY 4.0</a>.</p>
 <a class="info-source" href="https://zenodo.org/records/24009736" target="_blank" rel="noreferrer">Dataset, metodo e autori su Zenodo ↗</a>
 </dialog>

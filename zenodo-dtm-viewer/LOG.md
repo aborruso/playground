@@ -2,6 +2,8 @@
 
 ## 2026-11-19
 
+- Branch `zoom-libero`: zoom a scatti sui livelli del COG (5-2560 m), tasti + e −, rilievo scalato sulla risoluzione. Affiancate: stessa scala sulle due metà, sincronizzata nei due versi; tolti riquadro di zoom sinistro, «Allinea zoom» e scala sinistra. Testi della pagina e README aggiornati. Zoom nel link come `&res=80` (metri per pixel, omesso a 5 m).
+
 - Nuovo file DTM: Zenodo 24009736, v1.3, `HRDM5m_20261030_cog.tif`, 34,3 GB, COG con piramidi, ZSTD, nodata NaN. Decoder ZSTD con `zstddec` nel thread principale (geotiff.js 2.1.3 non lo ha), tolto `nodata:-9999`, testi e link aggiornati; zoom ancora fisso a 5 m. Stromboli: prima vista 4,6 MiB in 13 richieste (prima 10,6 MiB), quota 788,0 m come prima.
 
 - Scala della metà sinistra (Affiancate, desktop) limitata a 100 px con `maxWidth`: a zoom 1,5× la barra da 500 m usciva dal riquadro.

@@ -11,7 +11,13 @@ export function rightHalfExtent([minX,minY,maxX,maxY],split=0.5) {
 export function clampSplit(value) {
   return Math.min(0.95,Math.max(0.05,value));
 }
-export function viewOptions(center) {
+// Resolutions of the file's levels: 5 m and its 9 overviews, up to 2560 m.
+export const LEVELS=Array.from({length:10},(_,i)=>5*2**(9-i));
+// free=false: fixed 5 m (postcard). free=true: zoom snaps to the file's levels,
+// so every view reads exactly one level.
+export function viewOptions(center,free=false) {
+  if(free) return {center, projection:'EPSG:6875', resolutions:LEVELS, resolution:5,
+    constrainResolution:true, enableRotation:false};
   return {center, projection:'EPSG:6875', resolution:5, minResolution:5, maxResolution:5,
     enableRotation:false, smoothResolutionConstraint:false};
 }

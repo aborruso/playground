@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {viewOptions, rangeFetch, rightHalfExtent, leftHalfExtent, clampSplit, createRateGate} from './config.js';
+import {viewOptions, LEVELS, rangeFetch, rightHalfExtent, leftHalfExtent, clampSplit, createRateGate} from './config.js';
 
 test('il DTM copre solo la metà destra della viewport',()=>{
  assert.deepEqual(rightHalfExtent([100,200,1100,800]),[600,200,1100,800]);
@@ -54,4 +54,9 @@ test('attesa mai oltre 65 s anche con orologio sfasato',async()=>{
  gate.update(new Headers({'X-RateLimit-Remaining':'0','X-RateLimit-Reset':'99999'}),429);
  await gate.wait();
  assert.equal(waited,65000);
+});
+test('zoom libero: solo i livelli del file, da 5 a 2560 m',()=>{
+ assert.deepEqual(LEVELS,[2560,1280,640,320,160,80,40,20,10,5]);
+ const v=viewOptions([0,0],true);
+ assert.equal(v.resolution,5); assert.equal(v.constrainResolution,true); assert.equal(v.enableRotation,false);
 });

@@ -6,7 +6,7 @@ test('info: pulsante nel pannello e dialogo con fonte e motivazioni corrette',()
  const page=html();
  assert.match(page,/<button[^>]*id="info-open"[^>]*aria-haspopup="dialog"/);
  assert.match(page,/<dialog id="info-dialog"[^>]*aria-labelledby="info-title"/);
- for(const word of ['34,3 GB','LiDAR','TINITALY','HTTP Range','piramidi','scelta di questa mappa','5 m']) assert.ok(page.includes(word),word);
+ for(const word of ['34,3 GB','LiDAR','TINITALY','HTTP Range','piramidi','2.560 m','5 m']) assert.ok(page.includes(word),word);
  assert.match(page,/<form method="dialog">/);
  assert.match(page,/© <a[^>]+href="https:\/\/geoportale.agea.gov.it\/"/);
  assert.ok(page.includes('Ortofoto dei voli 2022, 2023 e 2024'));

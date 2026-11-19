@@ -8,7 +8,7 @@ test('mobile: solo mappa, due controlli e attribuzioni, dialogo fullscreen',()=>
  assert.match(mobile,/#minimap-panel\{display:none\}/);
  assert.match(mobile,/header>:not\(#search-form\)\{display:none\}/);
  assert.match(mobile,/#zoom-note,\.credit-long,\.ol-attribution\{display:none\}/);
- assert.match(mobile,/#left-zoom\{display:none\}/);
+ assert.match(mobile,/#map \.ol-zoom\{right:12px/);
  assert.match(mobile,/aside[^}]*background:none/);
  assert.match(mobile,/\.button-label\{display:none\}/);
  assert.match(mobile,/#mode-choice,#basemap-choice,#tools #help-open/);

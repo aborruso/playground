@@ -24,10 +24,12 @@ export function reliefVariables(settings={}) {
   return vars;
 }
 
-// Central differences at the native 5 m spacing. Texture y grows southward.
+// Central differences at the spacing of the level shown. Texture y grows southward.
 export function hillshadeColor() {
-  const rawDx=['/',['-',['band',1,1,0],['band',1,-1,0]],10];
-  const rawDy=['/',['-',['band',1,0,1],['band',1,0,-1]],10];
+  // Two cells apart: 2 × the resolution (10 m at full resolution, more on overviews).
+  const spacing=['*',2,['resolution']];
+  const rawDx=['/',['-',['band',1,1,0],['band',1,-1,0]],spacing];
+  const rawDy=['/',['-',['band',1,0,1],['band',1,0,-1]],spacing];
   const dx=['*',rawDx,['var','exag']], dy=['*',rawDy,['var','exag']];
   const normalLength=['sqrt',['+',1,['^',dx,2],['^',dy,2]]];
   const light=(i)=>['clamp',['/',['+',['var','l'+i+'z'],['*',dx,['var','l'+i+'x']],['*',dy,['var','l'+i+'y']]],normalLength],0,1];

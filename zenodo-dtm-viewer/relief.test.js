@@ -7,6 +7,7 @@ function evaluate(expr, sample, vars) {
  const [op,...args]=expr;
  if(op==='band') return sample(args[1]||0,args[2]||0);
  if(op==='var') return vars[args[0]];
+ if(op==='resolution') return vars.__resolution ?? 5;
  if(op==='case') {
   for(let i=0;i<args.length-1;i+=2) if(evaluate(args[i],sample,vars)) return evaluate(args[i+1],sample,vars);
   return evaluate(args.at(-1),sample,vars);
@@ -63,4 +64,8 @@ test('multidirezionale: entro 0-255 e meno buio del singolo sole sul pendio in o
  const multi=gray({render:'multi'},se);
  assert.ok(multi>=0 && multi<=255);
  assert.ok(multi>=gray({},se));
+});
+test('su un livello ridotto la stessa differenza di quota pesa meno: pendenza scalata sulla risoluzione',()=>{
+ const at=(resolution)=>evaluate(hillshadeColor(),(x,y)=>100+5*x+5*y,{...reliefVariables({render:'pendenza'}),__resolution:resolution})[0];
+ assert.ok(at(80)>at(5));
 });

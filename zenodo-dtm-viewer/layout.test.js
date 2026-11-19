@@ -51,6 +51,10 @@ test('font serviti dal sito, non da Google Fonts',()=>{
  assert.match(js,/@fontsource\/newsreader/);
  assert.match(js,/@fontsource\/ibm-plex-mono/);
 });
-test('la scala della metà sinistra resta dentro il riquadro dello zoom',()=>{
- assert.match(read('./dualview.js'),/new ScaleLine\(\{target:scaleTarget,minWidth:40,maxWidth:100\}\)/);
+test('tasti + e −, nessun riquadro di zoom a sinistra: le due metà hanno la stessa scala',()=>{
+ const html=read('./index.html'),js=read('./main.js'),dual=read('./dualview.js');
+ assert.match(js,/new Zoom\(/);
+ assert.ok(!html.includes('left-zoom') && !html.includes('align-zoom'));
+ assert.match(dual,/mainView.on\(\['change:center','change:resolution'\],follow\)/);
+ assert.match(dual,/mainView.getConstrainedResolution\(ground\)/);
 });
