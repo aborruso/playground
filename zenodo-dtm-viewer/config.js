@@ -1,9 +1,14 @@
 export const DTM_URL = 'https://zenodo.org/api/records/18921767/files/HRDTM5m/content';
-export function leftHalfExtent([minX,minY,maxX,maxY]) {
-  return [minX,minY,(minX+maxX)/2,maxY];
+// Split the screen extent at a fraction of its width (0.5 = two halves).
+export function leftHalfExtent([minX,minY,maxX,maxY],split=0.5) {
+  return [minX,minY,minX+(maxX-minX)*split,maxY];
 }
-export function rightHalfExtent([minX,minY,maxX,maxY]) {
-  return [(minX+maxX)/2,minY,maxX,maxY];
+export function rightHalfExtent([minX,minY,maxX,maxY],split=0.5) {
+  return [minX+(maxX-minX)*split,minY,maxX,maxY];
+}
+// Divider of the "tendina" view, kept away from the edges so both sides stay visible.
+export function clampSplit(value) {
+  return Math.min(0.95,Math.max(0.05,value));
 }
 export function viewOptions(center) {
   return {center, projection:'EPSG:6875', resolution:5, minResolution:5, maxResolution:5,

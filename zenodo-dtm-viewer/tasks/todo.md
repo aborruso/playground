@@ -96,3 +96,50 @@ Scelte: quota sotto il mirino destro; a sinistra zoom iniziale = 5 m a terra; zo
 - [x] Codice breve nella cartolina (`shortcode.js`, test): lat/lon a 0,0001° (~10 m) nel riquadro 35-48 N, 6-19 E, base 62, 6 caratteri; `/4Z4pkM` → `#lat=38.21750&lon=13.31430`. Footer cartolina e testo di condivisione usano il link breve. `public/_redirects` (`/*  /index.html  200`) per Netlify: da verificare dopo il deploy. 45 test ok.
 - [x] Cartolina centrata sul centro della metà destra (pixel 0,75 × larghezza, metà altezza), non sul mirino; mirino tolto dalla cartolina; coordinate, quota e codice breve ricalcolati per quel centro. In modalità doppia coincide col mirino destro. Verificato sull'Etna: cartolina e metà destra della pagina hanno lo stesso centro.
 - [x] Cambio di modalità senza spostare il rilievo: tolto il ricentramento dopo `view.padding` (il setter di OpenLayers mantiene fermo il contenuto). Il mirino destro indica il punto che era al centro della metà destra. Verificato: terreno spostato 0,000 m in entrata e in uscita, differenza pixel 0 nella metà destra, 0 richieste DTM a caricamento finito.
+
+## Ridisegno «Il terreno, da vicino» - approvate fasi A e B il 2026-11-18, fatte il 2026-11-19
+Fonte: mockup «Suggerimenti GUI e feature», file `Il terreno da vicino - Ridisegno.dc.html`. È un mock: luoghi, quote, profilo, MiB e rese del rilievo (filtri CSS su un PNG) sono finti. Implementazione in JS e CSS vanilla sull'app attuale, senza React, senza `support.js`, senza gli `assets/*.png` del mock. Si conservano: layout sotto 700 px, la mia posizione, «Allinea zoom», popup alla prima visita (testo attuale, raggiungibile da «Dietro la mappa: come funziona →»), indicatore di caricamento e pausa Zenodo, errori, clic sulla minimappa, attribuzioni OSM/AGEA, `base=` e `vista=doppia` nell'URL, link breve da `SITE`. Font self-hosted con @fontsource (Newsreader, IBM Plex Mono), non Google Fonts. Baseline: 45 test ok.
+
+### Fase A - involucro grafico (solo aspetto, stessi comportamenti)
+- [x] Palette verde scuro/oro, font, riquadro titolo «Il terreno, da vicino.» con ricerca integrata, contatore MiB, nome e coordinate del punto → verify: `npm test` verde (test di layout aggiornati), confronto a schermo 1400×900 e 390×844 su Xvfb.
+- [x] Pannello destro: blocco VISTA, strumenti con tasto, BASE A SINISTRA; barra in basso con coordinate, nota zoom, scala, crediti → verify: tutti i pulsanti attuali ancora raggiungibili, nessun overflow a 390 e 320 px.
+- [x] Ricerca: «Luoghi da provare» (5 luoghi fissi con coordinate verificate) e «Recenti» (ultimi 3, solo in memoria); Nominatim resta una richiesta per invio → verify: test su `search.js`, prova con Stromboli.
+- [x] Scorciatoie: `/` ricerca, `1` `2` `3` viste, Maiusc+`← →` divisore, `R`, `C`, `?`, `Esc` (`P` rinviato con il profilo); pannello «Scorciatoie» → verify: test sul gestore, prova a schermo.
+
+### Fase B - viste e luce, sul motore attuale
+- [x] Tendina: divisore trascinabile (maniglia, tastiera) invece della metà fissa → verify: estensione di DTM e base segue il divisore, richieste DTM misurate a divisore al 20% e all'80%.
+- [x] Affiancate = modalità due mirini attuale, con +/− e scala della sinistra; `vista=doppia` resta valido → verify: link vecchi aprono la vista giusta.
+- [x] Fusione: rilievo a tutta larghezza in trasparenza sull'ortofoto, cursore di opacità → verify: misurare quanti blocchi in più legge (circa il doppio atteso) prima di tenerla.
+- [x] Pannello Rilievo: azimut e altezza del sole, esagerazione verticale, resa ombreggiata/multidirezionale/pendenza (variabili di stile WebGL in `relief.js`) → verify: test su `relief.js`, cambio senza nuove richieste a Zenodo.
+
+### Fase C - da verificare prima di promettere (non approvata, ferma)
+- [ ] Profilo A→B: contare blocchi e richieste per un segmento di 3 km contro il limite di 133 al minuto; se regge, due clic A e B, grafico, salita e discesa reali.
+- [x] Cartolina con scelta Rilievo/Ortofoto/Tendina e formato 4:3, 1:1, 4:5: fatta il 2026-11-19, vedi «Cartolina avanzata».
+
+### Cartolina avanzata - richiesta 2026-11-19
+Scelte: centro unico per tutte le immagini (il centro della parte di rilievo, come oggi); niente mirino; in testa il nome del luogo cercato, altrimenti il titolo; ortofoto = base scelta (AGEA o OSM); font Newsreader e IBM Plex Mono, tolti Instrument Serif e DM Mono. CORS verificato: AGEA e OSM mandano `Access-Control-Allow-Origin`.
+- [x] Immagine Rilievo / Ortofoto / Tendina (metà e metà), formato 4:3, 1:1, 4:5 (1080×810, 1080×1080, 1080×1350) → verify: test su testi e misure; PNG reali per i tre casi. Esito 2026-11-19: PNG su Stromboli rilievo 4:5 1080×1350, ortofoto 1:1 1080×1080, tendina 4:3 1080×810; nessuna richiesta a Zenodo in più (blocchi in cache). Con WebGL software ogni resa del rilievo ha richiesto decine di secondi; su GPU reale non misurato.
+- [x] Anteprima a sinistra, comandi a destra; «Scarica PNG», «Copia link», «Condividi» dove il browser lo consente → verify: link negli appunti, mobile a 390 px. Esito: «Link copiato ✓» compare, ma il contenuto degli appunti non l'ho potuto rileggere nel browser automatico; a 390 px una colonna, nessuno scorrimento orizzontale.
+- [x] Crediti della base nel piede quando c'è l'ortofoto → verify: test (`cardCredits`, 58 test ok).
+
+### Mobile, ritocchi - richiesta 2026-11-19
+- [x] Riquadro +/− della metà sinistra nascosto sotto 700 px (pinch zoom; la scala sbordava) → verify: a 320 px compare solo «Allinea zoom» dopo uno zoom. Fatto.
+- [x] Crediti in un'unica striscia in basso con la scala, attribuzioni OpenLayers nascoste su mobile → verify: testo intero a 320 px (156 px su 156 con AGEA, 138 su 138 con OSM), nessuno scorrimento orizzontale. Fatto.
+
+### Gmaps e strumenti più compatti - richiesta 2026-11-19
+- [x] Righe degli strumenti 34 px e spazio 2 px su desktop (mobile invariato, 48 px) → verify: screenshot 1400×900. Fatto.
+- [x] «Gmaps» con lo stile degli altri strumenti, scorciatoia `G`, su mobile terzo pulsante a sinistra → verify: test `googleMapsUrl`; URL generato sull'Etna `center=37.75000,14.99000&zoom=18&basemap=satellite`; a 320 px nessuno scorrimento orizzontale. Fatto; l'apertura reale della scheda Google non l'ho guardata.
+
+### Esito 2026-11-19
+Verificato su Xvfb con agent-browser e SwiftShader, a 1400×900, 390×844 e 320×640.
+- Fase A: riquadro del titolo con ricerca, luoghi e recenti (Matera → «Sassi di Matera, Matera», quota 392,1 m), Nominatim («Monte Pellegrino» → 3 risultati con dettaglio), `/` porta il fuoco nel campo. Scorciatoie: `/`, `1` `2` `3`, Maiusc+← →, `R`, `C`, `?`, `Esc`. `P` non c'è, il profilo è in fase C. Le frecce senza Maiusc spostano già la mappa (KeyboardPan), quindi il divisore usa Maiusc+← → o le frecce sulla maniglia. Mobile: sette pulsanti, nessuno scorrimento orizzontale a 390 e 320 px.
+- Fase B: divisore al 30%, estensioni seguono. Misura su punti nuovi: rilievo al 20% dello schermo 13 richieste e 1,8 MiB; all'80% 35 richieste e 5,9 MiB. Fusione su Stromboli: blend `multiply`, opacità 0,6, `vista=fusione` nell'URL. Il confronto tendina/fusione su due punti diversi (28 richieste e 6,3 MiB contro 25 e 2,6) non è conclusivo: il peso dipende dal luogo più che dalla vista. Rilievo: pendenza, azimut 135° ed esagerazione 3×, 13 richieste prima e 13 dopo. Affiancate: + porta a zoom 2,0×, compare «Allinea zoom». Cartolina multidirezionale 1080×1080 su Monte Pellegrino.
+- Bug corretto: `hashchange` spostava il centro prima di leggere la vista, e lo spostamento riscriveva l'hash con la vista vecchia. Ora legge tutti i parametri prima.
+- Test: 56 ok. Build ok.
+- Da ricaricare su Netlify: `dist` aggiornata, deploy non fatto.
+
+### Domande irrisolte
+- Sky-view factor e TINITALY: fuori per scelta del 2026-11-18.
+- Curve di livello: nessuna risposta, non fatte.
+- Anteprima social: non cambiata. La cartolina ora usa Newsreader e IBM Plex Mono, come il mockup.
+- In Tendina, con il divisore molto a sinistra, l'etichetta AGEA finisce sotto il riquadro del titolo.

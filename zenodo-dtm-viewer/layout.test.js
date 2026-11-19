@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 const read=(name)=>readFileSync(new URL(name,import.meta.url),'utf8');
-test('minimappa Italia con marker, legenda assente e scala leggibile a destra',()=>{
+test('minimappa Italia con marker, legenda assente e scala nella barra in basso',()=>{
  const html=read('./index.html'),js=read('./main.js'),css=read('./style.css');
  assert.ok(!html.includes('class="legend"'));
  assert.match(html,/id="minimap"/);
@@ -13,15 +13,14 @@ test('minimappa Italia con marker, legenda assente e scala leggibile a destra',(
  assert.match(minimap,/marker.setCoordinates/);
  assert.match(minimap,/map.on\('singleclick'/);
  assert.match(minimap,/mainView.setCenter\(transform\(coordinate,'EPSG:3857'/);
- assert.match(css,/\.ol-scale-line\{left:auto;right:28px;/);
- assert.match(css,/header\{[^}]*background:#172b27;color:#fff9ed/);
- assert.match(css,/#map \.ol-scale-line-inner\{color:#fff9ed;border-color:#fff9ed/);
- assert.match(css,/grid-template-columns:1fr 1fr/);
+ assert.match(js,/new ScaleLine\(\{target:el\('scale'\)\}\)/);
+ assert.match(html,/<footer>[^]*id="scale"[^]*<\/footer>/);
+ assert.match(css,/header,aside,footer,#minimap-panel,\.panel\{background:var\(--panel\)/);
  assert.match(js,/map.on\('dblclick'/);
  assert.match(js,/view.setCenter\(event.coordinate\)/);
  assert.match(html,/id="crosshair"/);
  assert.match(html,/id="center-elevation"/);
- assert.match(css,/.split-label\{position:absolute;top:24px/);
+ assert.match(css,/\.split-label\{position:absolute;top:24px/);
  assert.match(html,/<span id="base-label">AGEA<\/span><span>RILIEVO<\/span>/);
 });
 test('indicatore di caricamento sul lato del rilievo',()=>{
@@ -30,4 +29,23 @@ test('indicatore di caricamento sul lato del rilievo',()=>{
  assert.match(css,/#dtm-loading\{position:absolute;z-index:1;left:calc\(50% \+ 34px\)/);
  assert.match(js,/source.on\('tileloadstart'/);
  assert.match(js,/map.on\('loadend'/);
+});
+test('ricerca nel riquadro del titolo, tre viste e pannelli rilievo e aiuto',()=>{
+ const html=read('./index.html'),js=read('./main.js'),css=read('./style.css');
+ assert.match(html,/<header>[^]*id="search-form"[^]*<\/header>/);
+ assert.match(css,/@media\(min-width:701px\)\{#search-form\[hidden\]\{display:block\}\}/);
+ for(const name of ['tendina','affiancate','fusione']) assert.match(html,new RegExp('data-mode="'+name+'"'));
+ assert.match(html,/id="split-handle" role="slider"/);
+ assert.match(css,/\.split-line\{[^}]*left:var\(--split\)/);
+ assert.match(js,/className:'dtm-relief'/);
+ assert.match(css,/body\.fusione \.dtm-relief\{mix-blend-mode:multiply\}/);
+ assert.match(html,/id="relief-panel"/);
+ assert.match(html,/id="help-panel"/);
+ assert.match(js,/layer.updateStyleVariables\(reliefVariables\(relief\)\)/);
+});
+test('font serviti dal sito, non da Google Fonts',()=>{
+ const html=read('./index.html'),js=read('./main.js');
+ assert.ok(!html.includes('fonts.googleapis.com'));
+ assert.match(js,/@fontsource\/newsreader/);
+ assert.match(js,/@fontsource\/ibm-plex-mono/);
 });

@@ -5,12 +5,16 @@ const read=(path)=>readFileSync(new URL(path,import.meta.url),'utf8');
 test('mobile: solo mappa, due controlli e attribuzioni, dialogo fullscreen',()=>{
  const css=read('./style.css'),html=read('./index.html');
  const mobile=css.slice(css.indexOf('@media(max-width:700px)'));
- assert.match(mobile,/header,footer,#minimap-panel\{display:none\}/);
+ assert.match(mobile,/#minimap-panel\{display:none\}/);
+ assert.match(mobile,/header>:not\(#search-form\)\{display:none\}/);
+ assert.match(mobile,/#zoom-note,\.credit-long,\.ol-attribution\{display:none\}/);
+ assert.match(mobile,/#left-zoom\{display:none\}/);
  assert.match(mobile,/aside[^}]*background:none/);
  assert.match(mobile,/\.button-label\{display:none\}/);
+ assert.match(mobile,/#mode-choice,#basemap-choice,#tools #help-open/);
  assert.match(mobile,/#info-dialog\{[^}]*width:100vw;[^}]*height:100dvh/);
  assert.match(mobile,/#info-dialog form\{position:sticky/);
  assert.match(html,/aria-label="La mia posizione"/);
  assert.match(html,/aria-label="Informazioni sulla mappa"/);
- assert.match(html,/id="mobile-source"/);
+ assert.match(html,/id="base-credit"/);
 });

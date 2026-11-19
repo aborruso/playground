@@ -3,6 +3,7 @@ import View from 'ol/View.js';
 import TileLayer from 'ol/layer/Tile.js';
 import OSM from 'ol/source/OSM.js';
 import Attribution from 'ol/control/Attribution.js';
+import ScaleLine from 'ol/control/ScaleLine.js';
 import {defaults as defaultInteractions} from 'ol/interaction/defaults.js';
 import MouseWheelZoom from 'ol/interaction/MouseWheelZoom.js';
 import {transform} from 'ol/proj.js';
@@ -17,12 +18,12 @@ export function groundResolution(lat) {
 // Main -> left follows live; left -> main only at the end of a gesture, so the
 // DTM side does not fetch blocks for every intermediate position (Zenodo rate limit).
 // The wheel zooms around the crosshair, so zooming alone never moves the DTM.
-export function createDualView({target,mainView,mainProjection}) {
+export function createDualView({target,mainView,mainProjection,scaleTarget}) {
   const osm=new TileLayer({source:new OSM(),visible:false});
   const agea=createAgeaLayer();
   const view=new View({projection:'EPSG:3857',enableRotation:false,minZoom:5,maxZoom:20});
   const map=new Map({target,layers:[osm,agea],view,
-    controls:[new Attribution({collapsible:false})],
+    controls:[new Attribution({collapsible:false}),new ScaleLine({target:scaleTarget})],
     interactions:defaultInteractions({altShiftDragRotate:false,pinchRotate:false,mouseWheelZoom:false})
       .extend([new MouseWheelZoom({useAnchor:false})])});
   let syncing=false;
@@ -39,6 +40,12 @@ export function createDualView({target,mainView,mainProjection}) {
     // True when the left side shows the same 5 m ground scale as the DTM.
     isAligned() {return Math.abs(view.getResolution()/groundTarget()-1)<0.01;},
     alignZoom() {view.animate({resolution:groundTarget(),duration:250});},
+    // Magnification of the left side relative to the 5 m of the relief.
+    zoomFactor() {return groundTarget()/view.getResolution();},
+    zoomBy(delta) {
+      const zoom=view.getConstrainedZoom(view.getZoom()+delta);
+      if(zoom!==undefined) view.animate({zoom,duration:200});
+    },
     activate() {
       const [lon,lat]=transform(mainView.getCenter(),mainProjection,'EPSG:4326');
       map.updateSize();

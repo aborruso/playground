@@ -1,9 +1,14 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {viewOptions, rangeFetch, rightHalfExtent, createRateGate} from './config.js';
+import {viewOptions, rangeFetch, rightHalfExtent, leftHalfExtent, clampSplit, createRateGate} from './config.js';
 
 test('il DTM copre solo la metà destra della viewport',()=>{
  assert.deepEqual(rightHalfExtent([100,200,1100,800]),[600,200,1100,800]);
+});
+test('il divisore della tendina sposta il confine fra base e rilievo',()=>{
+ assert.deepEqual(rightHalfExtent([100,200,1100,800],0.2),[300,200,1100,800]);
+ assert.deepEqual(leftHalfExtent([100,200,1100,800],0.2),[100,200,300,800]);
+ assert.equal(clampSplit(-1),0.05); assert.equal(clampSplit(2),0.95); assert.equal(clampSplit(0.3),0.3);
 });
 
 test('la risoluzione rimane 5 m anche con tentativi di zoom',()=> {

@@ -28,25 +28,73 @@
 <body>
 <main id="map" tabindex="0" aria-label="Modello del terreno. Trascina per spostarti; zoom bloccato."></main>
 <div id="left-map" hidden></div>
+<div id="left-zoom" role="group" aria-label="Zoom del lato sinistro" hidden><button id="left-zoom-in" type="button" aria-label="Ingrandisci il lato sinistro">+</button><p><span class="kicker">SINISTRA</span><span id="left-zoom-factor">zoom 1,0×</span><span id="left-scale"></span></p><button id="left-zoom-out" type="button" aria-label="Riduci il lato sinistro">−</button></div>
 <button id="align-zoom" type="button" hidden title="Riporta il lato sinistro alla scala del rilievo (5 m per pixel)">Allinea zoom</button>
-<div id="left-probe" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32" aria-hidden="true"><path d="M16 1v9m0 12v9M1 16h9m12 0h9" stroke="#172b27" stroke-width="4"/><path d="M16 1v9m0 12v9M1 16h9m12 0h9" stroke="#fff9ed" stroke-width="2"/><circle cx="16" cy="16" r="3" fill="#172b27" stroke="#fff9ed" stroke-width="1.5"/></svg></div>
+<div id="left-probe" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32" aria-hidden="true"><path d="M16 2v10m0 8v10M2 16h10m8 0h10" stroke="#0e1713" stroke-width="4"/><path d="M16 2v10m0 8v10M2 16h10m8 0h10" stroke="#f2ede1" stroke-width="2"/><circle cx="16" cy="16" r="4" fill="#e9c980" stroke="#0e1713" stroke-width="1.5"/></svg></div>
 <section id="minimap-panel" aria-label="Minimappa Italia: clicca per spostare la vista"><p>ITALIA / POSIZIONE</p><div id="minimap" aria-hidden="true"></div></section>
 <div class="split-line" aria-hidden="true"><div class="split-label"><span id="base-label">AGEA</span><span>RILIEVO</span></div></div>
+<div id="split-handle" role="slider" tabindex="0" aria-label="Divisore fra base e rilievo" aria-valuemin="5" aria-valuemax="95" aria-valuenow="50" aria-valuetext="50%" title="Trascina per confrontare (← →)"><span aria-hidden="true">‹</span><span aria-hidden="true">›</span></div>
+<p id="fusion-label" aria-hidden="true"><span id="fusion-base">AGEA</span> + RILIEVO · <span id="fusion-value">60</span>%</p>
 <div id="dtm-loading" role="status" aria-live="polite"><span class="spinner" aria-hidden="true"></span><span id="dtm-loading-text">Lettura degli indici del DTM…</span></div>
-<div id="center-probe"><svg id="crosshair" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true"><path d="M16 1v9m0 12v9M1 16h9m12 0h9" stroke="#172b27" stroke-width="4"/><path d="M16 1v9m0 12v9M1 16h9m12 0h9" stroke="#fff9ed" stroke-width="2"/><circle cx="16" cy="16" r="3" fill="#172b27" stroke="#fff9ed" stroke-width="1.5"/></svg><output id="center-elevation" aria-live="polite">Lettura quota…</output></div>
-<header><p class="eyebrow">ESPERIMENTO / HTTP RANGE</p><h1>Il terreno, <em>da vicino.</em></h1><p><span id="base-name" title="© AGEA — Agenzia per le Erogazioni in Agricoltura. Ortofoto dei voli 2022, 2023 e 2024. Licenza CC BY 4.0.">Ortofoto AGEA</span> / <a href="https://zenodo.org/records/18921767" target="_blank" rel="noreferrer">DTM 5 m · Zenodo ↗</a></p><p class="read-meter" title="Dati del DTM scaricati finora: corpi delle risposte raster, inclusi gli indici; overhead HTTP escluso."><span id="bytes">0,0 MiB</span> letti su 22,1 GB</p></header>
-<aside aria-label="Strumenti"><button id="search-open" type="button" aria-expanded="false" aria-controls="search-form" title="Cerca un luogo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5.5 5.5"/></svg><span class="button-label"> Cerca un luogo</span></button>
-<form id="search-form" role="search" hidden><input id="search-input" type="search" placeholder="Comune, località, monte…" aria-label="Cerca un luogo in Italia" autocomplete="off" enterkeyhint="search"><p id="search-status" role="status"></p><ol id="search-results"></ol><p class="search-credit">Ricerca: Nominatim · © OpenStreetMap</p></form>
-<button id="snapshot-open" type="button" aria-haspopup="dialog" aria-controls="snapshot-dialog" title="Cartolina del rilievo"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8h4l2-3h6l2 3h4v11H3Z"/><circle cx="12" cy="13" r="3.5"/></svg><span class="button-label"> Cartolina</span></button>
-<button id="dual-toggle" type="button" aria-pressed="false" title="Due mirini: stesso punto nelle due metà, lato sinistro ingrandibile"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 4v4m0 8v4M2 12h2m4 0h2M18 4v4m0 8v4M14 12h2m4 0h2"/><circle cx="6" cy="12" r="1.2"/><circle cx="18" cy="12" r="1.2"/></svg><span class="button-label"> Due mirini</span></button>
-<button id="locate" type="button" aria-label="La mia posizione" title="La mia posizione"><span aria-hidden="true">◎</span><span class="button-label"> La mia posizione</span></button><button id="info-open" type="button" aria-label="Informazioni sulla mappa" aria-haspopup="dialog" aria-controls="info-dialog" title="Come funziona questa mappa?"><span aria-hidden="true">ⓘ</span><span class="button-label">Come funziona questa mappa?</span></button>
-<p id="location-status" role="status"></p>
-<fieldset id="basemap-choice"><legend>Base a sinistra</legend><label><input type="radio" name="basemap" value="agea" checked> Ortofoto</label><label><input type="radio" name="basemap" value="osm"> OSM</label></fieldset>
+<div id="center-probe"><span id="crosshair"><svg viewBox="0 0 32 32" width="32" height="32" aria-hidden="true"><path d="M16 2v10m0 8v10M2 16h10m8 0h10" stroke="#0e1713" stroke-width="4"/><path d="M16 2v10m0 8v10M2 16h10m8 0h10" stroke="#f2ede1" stroke-width="2"/><circle cx="16" cy="16" r="4" fill="#e9c980" stroke="#0e1713" stroke-width="1.5"/></svg></span><output id="center-elevation" aria-live="polite">Lettura quota…</output></div>
+<header>
+<div class="title-block"><p class="eyebrow">ESPERIMENTO / HTTP RANGE</p><h1>Il terreno, <em>da vicino.</em></h1><p class="subtitle"><span id="base-name" title="© AGEA — Agenzia per le Erogazioni in Agricoltura. Ortofoto dei voli 2022, 2023 e 2024. Licenza CC BY 4.0.">Ortofoto AGEA</span> / <a href="https://zenodo.org/records/18921767" target="_blank" rel="noreferrer">DTM 5 m · Zenodo ↗</a></p></div>
+<form id="search-form" role="search" hidden><div class="search-box"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="7" cy="7" r="5"/><path d="m11 11 4 4"/></svg><input id="search-input" type="search" placeholder="Comune, località, monte…" aria-label="Cerca un luogo in Italia" autocomplete="off" enterkeyhint="search"><kbd aria-hidden="true">/</kbd></div><div id="search-suggest"></div><p id="search-status" role="status"></p><ol id="search-results"></ol><p class="search-credit">Ricerca: Nominatim · © OpenStreetMap</p></form>
+<div class="place-block"><p id="place-name" hidden></p><p id="place-coords"></p></div>
+<p class="read-meter" title="Dati del DTM scaricati finora: corpi delle risposte raster, inclusi gli indici; overhead HTTP escluso."><span><span id="bytes">0,0 MiB</span> letti su 22,1 GB</span><span id="last-read"></span></p>
+</header>
+<aside aria-label="Strumenti">
+<fieldset id="mode-choice"><legend>VISTA</legend>
+<button type="button" data-mode="tendina" aria-pressed="true">Tendina<small>sovrapposte, divisore mobile</small></button>
+<button type="button" data-mode="affiancate" aria-pressed="false">Affiancate<small>centro sincronizzato</small></button>
+<button type="button" data-mode="fusione" aria-pressed="false">Fusione<small>in trasparenza</small></button>
+<label id="fusion-opacity-label" hidden><span>Opacità del rilievo</span><input id="fusion-opacity" type="range" min="10" max="100" step="5" value="60"></label>
+</fieldset>
+<div id="tools">
+<button id="search-open" type="button" aria-expanded="false" aria-controls="search-form" title="Cerca un luogo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5.5 5.5"/></svg><span class="button-label">Cerca un luogo</span></button>
+<button id="mode-cycle" type="button" aria-label="Vista: tendina. Tocca per cambiare" title="Cambia vista: tendina, affiancate, fusione"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><path d="M12 5v14"/></svg><span class="button-label">Vista</span></button>
+<button id="relief-open" type="button" aria-expanded="false" aria-controls="relief-panel" title="Rilievo (R)"><span class="tool-icon" aria-hidden="true">◐</span><span class="button-label">Rilievo</span><kbd aria-hidden="true">R</kbd></button>
+<button id="snapshot-open" type="button" aria-haspopup="dialog" aria-controls="snapshot-dialog" title="Cartolina del rilievo (C)"><span class="tool-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h4l2-3h6l2 3h4v11H3Z"/><circle cx="12" cy="13" r="3.5"/></svg></span><span class="button-label">Cartolina</span><kbd aria-hidden="true">C</kbd></button>
+<button id="locate" type="button" aria-label="La mia posizione" title="La mia posizione"><span class="tool-icon" aria-hidden="true">◎</span><span class="button-label">Posizione</span></button>
+<button id="gmaps-open" type="button" title="Apri questo punto in Google Maps, vista satellite (G)"><span class="tool-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s-7-7.2-7-12.5a7 7 0 0 1 14 0C19 14.8 12 22 12 22Z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><span class="button-label">Gmaps</span><kbd aria-hidden="true">G</kbd></button>
+<button id="help-open" type="button" aria-expanded="false" aria-controls="help-panel" title="Aiuto e scorciatoie (?)"><span class="tool-icon" aria-hidden="true">i</span><span class="button-label">Aiuto</span><kbd aria-hidden="true">?</kbd></button>
+<button id="info-open" type="button" aria-label="Informazioni sulla mappa" aria-haspopup="dialog" aria-controls="info-dialog" title="Come funziona questa mappa?"><span aria-hidden="true">ⓘ</span></button>
+</div>
+<fieldset id="basemap-choice"><legend>BASE A SINISTRA</legend><label><input type="radio" name="basemap" value="agea" checked><span>Ortofoto</span></label><label><input type="radio" name="basemap" value="osm"><span>OSM</span></label></fieldset>
 <button id="basemap-toggle" type="button" aria-label="Attiva OpenStreetMap" aria-pressed="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m3 8 9-5 9 5-9 5Z M3 12l9 5 9-5 M3 16l9 5 9-5"/></svg></button>
+<p id="location-status" role="status"></p>
 <p id="error" role="alert"></p>
+<section id="relief-panel" class="panel" aria-labelledby="relief-title" hidden>
+<h2 id="relief-title">Rilievo</h2>
+<fieldset class="render-choice"><legend class="kicker">RESA</legend>
+<label><input type="radio" name="render" value="ombra" checked><span>Ombreggiato</span><small>un sole</small></label>
+<label><input type="radio" name="render" value="multi"><span>Multidirezionale</span><small>4 luci</small></label>
+<label><input type="radio" name="render" value="pendenza"><span>Pendenza</span><small>più scuro, più ripido</small></label>
+</fieldset>
+<fieldset id="light-controls" class="sliders">
+<label><span>Azimut del sole <output id="azimuth-value">315°</output></span><input id="azimuth" type="range" min="0" max="355" step="5" value="315"></label>
+<label><span>Altezza del sole <output id="altitude-value">45°</output></span><input id="altitude" type="range" min="10" max="80" step="5" value="45"></label>
+<label><span>Esagerazione verticale <output id="exag-value">1,0×</output></span><input id="exag" type="range" min="1" max="4" step="0.5" value="1"></label>
+</fieldset>
+<p class="panel-note">Ricalcolato sui blocchi già letti: nessuna nuova richiesta a Zenodo.</p>
+</section>
+<section id="help-panel" class="panel" aria-labelledby="help-title" hidden>
+<h2 id="help-title">Scorciatoie</h2>
+<dl class="shortcuts">
+<div><dt>Cerca un luogo</dt><dd><kbd>/</kbd></dd></div>
+<div><dt>Tendina, affiancate, fusione</dt><dd><kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd></dd></div>
+<div><dt>Sposta il divisore</dt><dd><kbd>Maiusc ← →</kbd></dd></div>
+<div><dt>Pannello rilievo</dt><dd><kbd>R</kbd></dd></div>
+<div><dt>Cartolina</dt><dd><kbd>C</kbd></dd></div>
+<div><dt>Apri in Google Maps</dt><dd><kbd>G</kbd></dd></div>
+<div><dt>Sposta la mappa</dt><dd><kbd>← ↑ → ↓</kbd></dd></div>
+<div><dt>Chiudi</dt><dd><kbd>Esc</kbd></dd></div>
+</dl>
+<p class="panel-note">Doppio clic sulla mappa: centra il punto. Clic sulla minimappa: salta lì.</p>
+<button id="help-info" type="button" class="link-button">Dietro la mappa: come funziona →</button>
+</section>
 </aside>
-<footer><p>DTM: Panza et al. · IRPI-CNR · <a href="https://zenodo.org/records/18921767" target="_blank" rel="noreferrer">CC BY 4.0 ↗</a></p></footer>
-<a id="mobile-source" href="https://zenodo.org/records/18921767" target="_blank" rel="noreferrer">DTM · CC BY 4.0 ↗</a>
+<footer><span id="zoom-note">Zoom fisso · 5 m/px</span><span id="scale"></span><span class="credits"><span class="credit-long">DTM: Panza et al. · IRPI-CNR · </span><span class="credit-short">DTM</span><span id="base-credit"> · © AGEA · </span><a href="https://zenodo.org/records/18921767" target="_blank" rel="noreferrer">CC BY 4.0 ↗</a><span id="base-credit-after"></span></span></footer>
 <dialog id="info-dialog" aria-labelledby="info-title">
 <form method="dialog"><button class="info-close" aria-label="Chiudi informazioni" autofocus>×</button></form>
 <p class="info-kicker">DIETRO LA MAPPA</p>
@@ -60,19 +108,23 @@
 <section class="info-section"><h3>Perché si può fare</h3>
 <p>Gli autori hanno pubblicato il file come <strong>dato aperto</strong>, con licenza CC BY 4.0: chiunque può usarlo e costruirci sopra, citando la fonte. Questa pagina non ha un server di dati: legge il file là dove è stato pubblicato. È un piccolo esempio del valore di un dato aperto, documentato e raggiungibile in rete.</p></section>
 <section class="info-section"><h3>Da provare</h3>
-<p>Cerca con la lente un luogo che conosci, trascina la mappa, fai doppio clic per centrare un punto e leggine la quota nel mirino. L’indirizzo della pagina conserva posizione e base: copialo per condividere quel punto.</p></section>
-<p class="info-note">La vista è divisa in due metà affiancate: a sinistra le ortofoto AGEA dei voli 2022, 2023 e 2024 sovrapposte, oppure OpenStreetMap; a destra il rilievo ombreggiato, calcolato nel browser dalle quote con luce da nord-ovest. Spostando la mappa, un luogo passa da una metà all’altra. Con il tasto dei due mirini, le due metà mostrano invece lo stesso punto, ciascuna con il suo mirino, e il lato sinistro si può ingrandire.</p>
+<p>Cerca un luogo che conosci, trascina la mappa, fai doppio clic per centrare un punto e leggine la quota nel mirino. L’indirizzo della pagina conserva posizione e base: copialo per condividere quel punto.</p></section>
+<p class="info-note">La mappa confronta due strati: le ortofoto AGEA dei voli 2022, 2023 e 2024 sovrapposte, oppure OpenStreetMap, e il rilievo calcolato nel browser dalle quote. Con «Tendina» i due strati sono uno accanto all’altro e il divisore si trascina: spostando la mappa, un luogo passa da un lato all’altro. Con «Affiancate» le due metà mostrano lo stesso punto, ciascuna con il suo mirino, e il lato sinistro si può ingrandire. Con «Fusione» il rilievo si sovrappone all’ortofoto in trasparenza, e legge circa il doppio dei blocchi. Dal pannello Rilievo si cambiano direzione e altezza del sole, esagerazione verticale e tipo di resa, senza nuove letture del file.</p>
 <p class="info-note">Ortofoto: © <a href="https://geoportale.agea.gov.it/" target="_blank" rel="noreferrer">AGEA, Agenzia per le Erogazioni in Agricoltura</a>. Ortofoto dei voli 2022, 2023 e 2024 · <a href="https://creativecommons.org/licenses/by/4.0/deed.it" target="_blank" rel="noreferrer">CC BY 4.0</a>.</p>
 <a class="info-source" href="https://zenodo.org/records/18921767" target="_blank" rel="noreferrer">Dataset, metodo e autori su Zenodo ↗</a>
 </dialog>
 <dialog id="snapshot-dialog" aria-labelledby="snapshot-title">
 <form method="dialog"><button class="info-close" aria-label="Chiudi cartolina">×</button></form>
-<p class="info-kicker">CARTOLINA 1:1</p>
-<h2 id="snapshot-title">Il rilievo di questo punto</h2>
+<div class="snap-grid">
+<div class="snap-preview"><div id="snapshot-wait" aria-hidden="true" hidden><span class="spinner"></span></div><img id="snapshot-img" alt="Cartolina del punto al centro del rilievo, con titolo, coordinate, quota e crediti" hidden></div>
+<div class="snap-controls">
+<div><p class="info-kicker">CARTOLINA</p><h2 id="snapshot-title">Il terreno di questo punto</h2></div>
+<fieldset class="segmented" id="snapshot-image"><legend>IMMAGINE</legend><button type="button" data-image="rilievo" aria-pressed="true">Rilievo</button><button type="button" data-image="orto" aria-pressed="false" id="snapshot-base">Ortofoto</button><button type="button" data-image="split" aria-pressed="false">Tendina</button></fieldset>
+<fieldset class="segmented" id="snapshot-format"><legend>FORMATO</legend><button type="button" data-format="4:3" aria-pressed="false">4:3</button><button type="button" data-format="1:1" aria-pressed="true">1:1</button><button type="button" data-format="4:5" aria-pressed="false">4:5</button></fieldset>
 <p id="snapshot-status" role="status"></p>
-<div id="snapshot-wait" aria-hidden="true" hidden><span class="spinner"></span></div>
-<img id="snapshot-img" alt="Cartolina: rilievo ombreggiato del punto al centro della mappa, con titolo, coordinate e crediti" hidden>
-<div id="snapshot-actions" hidden><button id="snapshot-share" type="button" hidden>Condividi</button><a id="snapshot-download" href="#">Scarica PNG</a></div>
+<div id="snapshot-actions"><a id="snapshot-download" href="#" aria-disabled="true">Scarica PNG</a><button id="snapshot-copy" type="button">Copia link</button><button id="snapshot-share" type="button" hidden>Condividi</button></div>
+</div>
+</div>
 </dialog>
 <script type="module" src="/main.js"></script>
 </body></html>
