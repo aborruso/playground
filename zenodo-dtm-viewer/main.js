@@ -59,7 +59,8 @@ window.fetch=async(input,options={})=>{
   } catch(error) {showError(error);throw error;}
 };
 const source=new GutteredGeoTIFF({
-  sources:[{url:DTM_URL,nodata:-9999}],
+  // No nodata override: the file declares NaN, which OpenLayers handles.
+  sources:[{url:DTM_URL}],
   normalize:false, interpolate:false, wrapX:false,
   sourceOptions:{allowFullFile:false,maxRanges:0,blockSize:65536,cacheSize:256}
 });
@@ -306,6 +307,9 @@ document.querySelectorAll('input[name="basemap"]').forEach(input=>{
 el('basemap-toggle').addEventListener('click',()=>setBasemap(baseName==='agea'?'osm':'agea'));
 setBasemap(initialBase || 'agea');
 setMode(initialMode);
+// Entering a mode keeps the terrain still and moves the centre (wanted for the
+// button). A shared link must instead put its point under that mode's crosshair.
+view.setCenter(transform(initialPosition,'EPSG:4326','EPSG:6875'));
 // Side panels (relief, help): one open at a time.
 const PANELS={relief:['relief-panel','relief-open'],help:['help-panel','help-open']};
 function togglePanel(name,open) {

@@ -2,6 +2,12 @@
 
 ## 2026-11-19
 
+- Nuovo file DTM: Zenodo 24009736, v1.3, `HRDM5m_20261030_cog.tif`, 34,3 GB, COG con piramidi, ZSTD, nodata NaN. Decoder ZSTD con `zstddec` nel thread principale (geotiff.js 2.1.3 non lo ha), tolto `nodata:-9999`, testi e link aggiornati; zoom ancora fisso a 5 m. Stromboli: prima vista 4,6 MiB in 13 richieste (prima 10,6 MiB), quota 788,0 m come prima.
+
+- Scala della metà sinistra (Affiancate, desktop) limitata a 100 px con `maxWidth`: a zoom 1,5× la barra da 500 m usciva dal riquadro.
+
+- Corretto: un link con `vista=doppia` si apriva spostato di un quarto di schermo (2,25 km a 1800 px), perché l'ingresso in Affiancate lascia fermo il terreno e sposta il centro. All'apertura il centro torna sul punto condiviso.
+
 - Pannello Rilievo: «↺ Ripristina» accanto al titolo, riporta ombreggiato, 315°, 45°, 1×; spento quando i valori sono già quelli predefiniti.
 
 - Strumento «Gmaps» (`G`): Google Maps con pin rosso sul punto del mirino, satellite, zoom 16, in una nuova scheda (`maps?q=…&t=k&z=16`, verificato nel browser). Righe degli strumenti più compatte su desktop (34 px, prima 44).

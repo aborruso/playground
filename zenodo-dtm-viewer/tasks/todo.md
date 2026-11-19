@@ -133,6 +133,21 @@ Scelte: centro unico per tutte le immagini (il centro della parte di rilievo, co
 ### Ripristino del rilievo - richiesta 2026-11-19
 - [x] «↺ Ripristina» in alto a destra nel pannello Rilievo → verify: nel browser, spento all'inizio, acceso dopo multidirezionale 355°/10°/2,5×, al clic tutto torna a ombreggiato 315°/45°/1× e si spegne. Fatto.
 
+### Link condivisi in Affiancate - segnalazione 2026-11-19
+- [x] `#lat=45.52639&lon=9.23717&base=agea&vista=doppia` si apriva su 45.52708/9.26603: differenza di longitudine 0,02886°, un quarto di 1800 px per 5 m. Causa: `setMode` all'avvio imposta `view.padding`, che lascia fermo il terreno e sposta il centro. Correzione: dopo `setMode(initialMode)` il centro torna su `initialPosition` → verify: nel browser a 1800×920 l'hash resta identico in doppia, fusione e tendina; coordinata sotto il mirino destro uguale al centro della vista; test statico, 60 test ok. Fatto.
+
+### Scala sinistra fuori dal riquadro - segnalazione 2026-11-19
+- [x] A zoom 1,5× la barra da 500 m usciva dal riquadro di 132 px. `ScaleLine` della mappa sinistra con `minWidth:40,maxWidth:100` (spazio interno 108 px) → verify: nel browser a 1800×920, zoom da 12 a 17,5 a passi di 0,5, barra larga 42-85 px, sempre dentro; test statico, 61 test ok. Fatto.
+
+### Nuovo file DTM, Zenodo 24009736 (v1.3) - fase 1, approvata 2026-11-19
+Ispezione con gdalinfo via HTTP Range: `HRDM5m_20261030_cog.tif`, 34.305.072.863 byte, EPSG:6875, 5 m, griglia spostata di 1 px a est, blocchi 512×512, ZSTD con predictor 3, nodata NaN, 9 piramidi (10-2560 m). Range 206 e CORS `*` verificati.
+- [x] Nuovo `DTM_URL` → verify: risposta 206 nel browser. Fatto: solo risposte 206.
+- [x] Decoder ZSTD registrato in geotiff.js (codice 50000) con `zstddec` già installato → verify: test di decodifica in node; rilievo visibile nel browser. Fatto: in node Etna 3148,9 m, Stromboli 788,0 m, mare NaN; OpenLayers decodifica nei worker, quindi `dtm-source.js` passa `pool:null`; serve la dimensione del blocco perché i frame di GDAL non la dichiarano. Rilievo visibile su Stromboli, senza righe ai bordi.
+- [x] Nodata: tolto `nodata:-9999`, si usa il NaN del file → verify: in node il mare dà NaN, che `sampleElevation` scarta già. Nel browser il mare resta grigio chiaro come col file precedente: non è un cambiamento.
+- [x] Testi: 34,3 GB, link al record 24009736 (pagina, popup, cartolina, README), popup sulle piramidi (ora ci sono, lo zoom fisso resta una scelta) → verify: test aggiornati. Fatto, 61 test ok; LOG e voci passate del todo lasciate col vecchio record.
+- [x] Misure: byte degli indici e di una vista con il nuovo file, cartolina → verify: nel browser. Fatto: Stromboli, indici e prima vista 4,6 MiB in 13 richieste (prima 10,6 MiB); cartolina 1080×1080 col link al record 24009736. Indici da soli non separati.
+Fase 2 (zoom libero) solo dopo, su richiesta.
+
 ### Esito 2026-11-19
 Verificato su Xvfb con agent-browser e SwiftShader, a 1400×900, 390×844 e 320×640.
 - Fase A: riquadro del titolo con ricerca, luoghi e recenti (Matera → «Sassi di Matera, Matera», quota 392,1 m), Nominatim («Monte Pellegrino» → 3 risultati con dettaglio), `/` porta il fuoco nel campo. Scorciatoie: `/`, `1` `2` `3`, Maiusc+← →, `R`, `C`, `?`, `Esc`. `P` non c'è, il profilo è in fase C. Le frecce senza Maiusc spostano già la mappa (KeyboardPan), quindi il divisore usa Maiusc+← → o le frecce sulla maniglia. Mobile: sette pulsanti, nessuno scorrimento orizzontale a 390 e 320 px.

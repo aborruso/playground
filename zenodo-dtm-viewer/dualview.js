@@ -18,12 +18,13 @@ export function groundResolution(lat) {
 // Main -> left follows live; left -> main only at the end of a gesture, so the
 // DTM side does not fetch blocks for every intermediate position (Zenodo rate limit).
 // The wheel zooms around the crosshair, so zooming alone never moves the DTM.
+// The scale bar sits in a 132 px box (108 px inside): maxWidth keeps it there.
 export function createDualView({target,mainView,mainProjection,scaleTarget}) {
   const osm=new TileLayer({source:new OSM(),visible:false});
   const agea=createAgeaLayer();
   const view=new View({projection:'EPSG:3857',enableRotation:false,minZoom:5,maxZoom:20});
   const map=new Map({target,layers:[osm,agea],view,
-    controls:[new Attribution({collapsible:false}),new ScaleLine({target:scaleTarget})],
+    controls:[new Attribution({collapsible:false}),new ScaleLine({target:scaleTarget,minWidth:40,maxWidth:100})],
     interactions:defaultInteractions({altShiftDragRotate:false,pinchRotate:false,mouseWheelZoom:false})
       .extend([new MouseWheelZoom({useAnchor:false})])});
   let syncing=false;

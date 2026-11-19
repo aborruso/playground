@@ -1,4 +1,5 @@
-export const DTM_URL = 'https://zenodo.org/api/records/18921767/files/HRDTM5m/content';
+// Zenodo 24009736 (v1.3): COG, ZSTD, nodata NaN, overviews down to 2560 m.
+export const DTM_URL = 'https://zenodo.org/api/records/24009736/files/HRDM5m_20261030_cog.tif/content';
 // Split the screen extent at a fraction of its width (0.5 = two halves).
 export function leftHalfExtent([minX,minY,maxX,maxY],split=0.5) {
   return [minX,minY,minX+(maxX-minX)*split,maxY];

@@ -22,5 +22,5 @@ export function cardImageHeight(format) {
 export function cardCredits(image,base) {
   const dtm='DTM 5 m · Panza et al., IRPI-CNR · CC BY 4.0';
   const baseCredit=base==='osm'?'Base © OpenStreetMap contributors · ODbL':'Ortofoto © AGEA · CC BY 4.0';
-  return image==='rilievo'?[dtm,'zenodo.org/records/18921767']:[dtm,baseCredit];
+  return image==='rilievo'?[dtm,'zenodo.org/records/24009736']:[dtm,baseCredit];
 }

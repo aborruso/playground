@@ -39,3 +39,7 @@ test('la vista viaggia nel link; i vecchi link vista=doppia aprono Affiancate',(
 test('Google Maps: pin sul punto, vista satellite, latitudine prima',()=>{
  assert.equal(googleMapsUrl([14.99,37.75]),'https://www.google.com/maps?q=37.75000,14.99000&t=k&z=16');
 });
+test('link condiviso in vista affiancata: il punto torna sotto il mirino dopo il cambio di vista',()=>{
+ const main=readFileSync(new URL('./main.js',import.meta.url),'utf8');
+ assert.match(main,/setMode\(initialMode\);[^]*?\nview.setCenter\(transform\(initialPosition,'EPSG:4326','EPSG:6875'\)\);/);
+});

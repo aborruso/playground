@@ -51,3 +51,6 @@ test('font serviti dal sito, non da Google Fonts',()=>{
  assert.match(js,/@fontsource\/newsreader/);
  assert.match(js,/@fontsource\/ibm-plex-mono/);
 });
+test('la scala della metà sinistra resta dentro il riquadro dello zoom',()=>{
+ assert.match(read('./dualview.js'),/new ScaleLine\(\{target:scaleTarget,minWidth:40,maxWidth:100\}\)/);
+});

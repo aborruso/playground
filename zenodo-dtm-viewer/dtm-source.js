@@ -1,4 +1,5 @@
 import GeoTIFF from 'ol/source/GeoTIFF.js';
+import './zstd-decoder.js';
 
 // GeoTIFF source that reads one extra pixel around each block (a "gutter").
 // The hillshade compares each pixel with its neighbours: without the gutter,
@@ -15,7 +16,8 @@ export class GutteredGeoTIFF extends GeoTIFF {
       const image=images[z];
       if(!image || image.guttered) continue;
       const read=image.readRasters.bind(image);
-      image.readRasters=(opts)=>read({...opts,
+      // pool:null decodes on the main thread, where the ZSTD decoder is registered.
+      image.readRasters=(opts)=>read({...opts,pool:null,
         window:[opts.window[0]-g,opts.window[1]-g,opts.window[2]+g,opts.window[3]+g],
         width:opts.width+2*g,height:opts.height+2*g});
       image.guttered=true;
