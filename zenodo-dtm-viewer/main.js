@@ -335,8 +335,17 @@ function updateRelief() {
   // Slope does not depend on light or exaggeration.
   el('light-controls').disabled=relief.render==='pendenza';
   layer.updateStyleVariables(reliefVariables(relief));
+  el('relief-reset').disabled=Object.keys(RELIEF_DEFAULTS).every(key=>relief[key]===RELIEF_DEFAULTS[key]);
 }
 el('relief-panel').addEventListener('input',updateRelief);
+// Back to the default relief: one sun from the north-west, no exaggeration.
+el('relief-reset').addEventListener('click',()=>{
+  document.querySelector('input[name="render"][value="'+RELIEF_DEFAULTS.render+'"]').checked=true;
+  el('azimuth').value=RELIEF_DEFAULTS.azimuth;
+  el('altitude').value=RELIEF_DEFAULTS.altitude;
+  el('exag').value=RELIEF_DEFAULTS.exag;
+  updateRelief();
+});
 el('info-open').addEventListener('click',()=>el('info-dialog').showModal());
 el('help-info').addEventListener('click',()=>{togglePanel(null);el('info-dialog').showModal();});
 // Click on the backdrop (outside the dialog box) closes it.

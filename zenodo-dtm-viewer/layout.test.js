@@ -42,6 +42,8 @@ test('ricerca nel riquadro del titolo, tre viste e pannelli rilievo e aiuto',()=
  assert.match(html,/id="relief-panel"/);
  assert.match(html,/id="help-panel"/);
  assert.match(js,/layer.updateStyleVariables\(reliefVariables\(relief\)\)/);
+ assert.match(html,/<div class="panel-head"><h2 id="relief-title">Rilievo<\/h2><button id="relief-reset"/);
+ assert.match(js,/el\('relief-reset'\).addEventListener\('click'/);
 });
 test('font serviti dal sito, non da Google Fonts',()=>{
  const html=read('./index.html'),js=read('./main.js');

@@ -21,7 +21,9 @@ export function readBase(hash) {
   const base=new URLSearchParams(hash.replace(/^#/,'')).get('base');
   return base==='agea'||base==='osm'?base:null;
 }
-// Google Maps URLs (api=1): map centred on the point, satellite, close zoom.
-export function googleMapsUrl([lon,lat],zoom=18) {
-  return 'https://www.google.com/maps/@?api=1&map_action=map&center='+lat.toFixed(5)+','+lon.toFixed(5)+'&zoom='+zoom+'&basemap=satellite';
+// Google Maps with a red pin on the point, satellite (t=k), zoom 16 (~1.9 m/px: streets in view).
+// The official api=1 URLs put a pin only in "search", which has no satellite
+// or zoom; this classic form does all three (checked 2026-11-19).
+export function googleMapsUrl([lon,lat],zoom=16) {
+  return 'https://www.google.com/maps?q='+lat.toFixed(5)+','+lon.toFixed(5)+'&t=k&z='+zoom;
 }

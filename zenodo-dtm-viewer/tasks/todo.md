@@ -128,7 +128,10 @@ Scelte: centro unico per tutte le immagini (il centro della parte di rilievo, co
 
 ### Gmaps e strumenti più compatti - richiesta 2026-11-19
 - [x] Righe degli strumenti 34 px e spazio 2 px su desktop (mobile invariato, 48 px) → verify: screenshot 1400×900. Fatto.
-- [x] «Gmaps» con lo stile degli altri strumenti, scorciatoia `G`, su mobile terzo pulsante a sinistra → verify: test `googleMapsUrl`; URL generato sull'Etna `center=37.75000,14.99000&zoom=18&basemap=satellite`; a 320 px nessuno scorrimento orizzontale. Fatto; l'apertura reale della scheda Google non l'ho guardata.
+- [x] «Gmaps» con lo stile degli altri strumenti, scorciatoia `G`, su mobile terzo pulsante a sinistra → verify: test `googleMapsUrl`; a 320 px nessuno scorrimento orizzontale. Fatto. Poi URL cambiato in `maps?q=37.75000,14.99000&t=k&z=18` per avere il pin: verificato nel browser, pin rosso, satellite, scheda del luogo con «Indicazioni». Zoom portato a 16 (circa 1,9 m/px) per tenere il contesto.
+
+### Ripristino del rilievo - richiesta 2026-11-19
+- [x] «↺ Ripristina» in alto a destra nel pannello Rilievo → verify: nel browser, spento all'inizio, acceso dopo multidirezionale 355°/10°/2,5×, al clic tutto torna a ombreggiato 315°/45°/1× e si spegne. Fatto.
 
 ### Esito 2026-11-19
 Verificato su Xvfb con agent-browser e SwiftShader, a 1400×900, 390×844 e 320×640.

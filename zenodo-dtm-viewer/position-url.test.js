@@ -36,6 +36,6 @@ test('la vista viaggia nel link; i vecchi link vista=doppia aprono Affiancate',(
  assert.equal(readMode('#lat=38.12000&lon=13.35000&vista=xyz'),'tendina');
  assert.equal(readMode('#lat=38.12000&lon=13.35000'),'tendina');
 });
-test('Google Maps: vista satellite centrata sul punto, latitudine prima',()=>{
- assert.equal(googleMapsUrl([14.99,37.75]),'https://www.google.com/maps/@?api=1&map_action=map&center=37.75000,14.99000&zoom=18&basemap=satellite');
+test('Google Maps: pin sul punto, vista satellite, latitudine prima',()=>{
+ assert.equal(googleMapsUrl([14.99,37.75]),'https://www.google.com/maps?q=37.75000,14.99000&t=k&z=16');
 });

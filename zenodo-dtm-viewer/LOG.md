@@ -2,7 +2,9 @@
 
 ## 2026-11-19
 
-- Strumento «Gmaps» (`G`): Google Maps satellite, zoom 18, sul punto del mirino, in una nuova scheda. Righe degli strumenti più compatte su desktop (34 px, prima 44).
+- Pannello Rilievo: «↺ Ripristina» accanto al titolo, riporta ombreggiato, 315°, 45°, 1×; spento quando i valori sono già quelli predefiniti.
+
+- Strumento «Gmaps» (`G`): Google Maps con pin rosso sul punto del mirino, satellite, zoom 16, in una nuova scheda (`maps?q=…&t=k&z=16`, verificato nel browser). Righe degli strumenti più compatte su desktop (34 px, prima 44).
 
 - Ridisegno «Il terreno, da vicino» (mockup «Suggerimenti GUI e feature»), fasi A e B. Palette verde scuro e oro, font Newsreader e IBM Plex Mono da @fontsource, ricerca nel riquadro del titolo con luoghi da provare e recenti, pannello VISTA, barra in basso, scorciatoie da tastiera.
 - Tre viste: Tendina con divisore trascinabile, Affiancate (ex due mirini, `vista=doppia` resta valido, ora con + e − e scala), Fusione in trasparenza (`vista=fusione`).
